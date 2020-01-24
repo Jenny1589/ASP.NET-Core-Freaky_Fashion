@@ -1,8 +1,31 @@
-﻿.logo {
+﻿.align-right {
+    position: absolute;
+    right: 0;
+}
+
+.logo {
     font-family: 'Shadows Into Light', cursive;
     font-size: 40px;
+}
+
+.navbar {
+    position: relative;
+    justify-content: flex-start;
+}
+
+.navbar-icon {
+    position: relative;
+    right: 0;
+    font-size: 40px;
+    color: white;
+    cursor: pointer;
+}
+
+.navbar-icon:hover {
+    color: #ffa2ef
 }
 
 .search{
     width: 25%;
 }
+
