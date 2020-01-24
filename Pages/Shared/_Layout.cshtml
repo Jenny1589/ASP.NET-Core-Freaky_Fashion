@@ -5,13 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - FreakyFashion</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link href="https://fonts.googleapis.com/css?family=Shadows+Into+Light&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Shadows+Into+Light&display=swap" 
+          rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+          rel="stylesheet">
     <link rel="stylesheet" href="~/css/site.css" />
 </head>
 <body>
     <header>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <a class="navbar-brand logo" href="/">Freaky Fashion</a>
+
+            <div class="input-group search">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">
+                        <i class="material-icons">
+                            search
+                        </i>
+                    </span>
+                </div>
+                
+                <input type="text" class="form-control" placeholder="Search..." aria-label="Search" /> 
+            </div>
         </nav>
     </header>
     <div class="container">
