@@ -3,26 +3,56 @@
     right: 0;
 }
 
+.bg-black {
+    background-color: black;
+}
+
 .logo {
     font-family: 'Shadows Into Light', cursive;
-    font-size: 40px;
+    font-size: 78px;
 }
 
 .navbar {
     position: relative;
     justify-content: flex-start;
+    flex-direction: column;
 }
 
 .navbar-icon {
-    position: relative;
-    right: 0;
     font-size: 40px;
+}
+
+.navbar-link {
     color: white;
+    text-decoration: none;
     cursor: pointer;
 }
 
-.navbar-icon:hover {
-    color: #ffa2ef
+.navbar-link:link {
+    color: white;
+    margin: 0 16px;
+    
+}
+
+navbar-link:visited {
+    color: #ffa2ef;
+}
+
+.navbar-link:hover {
+    color: #ffa2ef;
+    text-decoration: none;
+}
+
+.navbar-link:active {
+    color: white;
+}
+
+.navbar-row{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
 }
 
 .search{
