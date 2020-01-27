@@ -1,6 +1,7 @@
 ﻿using FreakyFashion.Data.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using System;
 
 namespace FreakyFashion.Data.EntityConfigurations
 {
@@ -18,6 +19,7 @@ namespace FreakyFashion.Data.EntityConfigurations
                 .IsRequired();
 
             builder.Property(p => p.ImageUri)
+                .HasConversion(value => value.ToString(), value => new Uri(value))
                 .IsRequired();
         }
     }
