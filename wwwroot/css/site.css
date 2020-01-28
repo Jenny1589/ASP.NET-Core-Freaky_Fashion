@@ -7,6 +7,42 @@
     background-color: black;
 }
 
+.btn-freaky {
+    background-color: #ffa2ef;
+    color: white;
+}
+
+.btn-freaky:active {
+    background-color: black;
+    color: white;
+}
+
+.header {
+    font-family: 'Shadows Into Light', cursive;
+}
+
+.hero {
+    margin-top: 32px;
+    height: 350px;
+}
+
+.hero-item {
+    padding: 0 150px;
+}
+
+.hero-image {
+    height: 350px;
+    width: 350px;
+}
+
+.hero-info{
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: flex-start;
+    height: 100%;
+}
+
 .logo {
     font-family: 'Shadows Into Light', cursive;
     font-size: 78px;
@@ -53,6 +89,11 @@ navbar-link:visited {
     align-items: center;
     justify-content: flex-start;
     width: 100%;
+}
+
+.price {
+    font-family: 'Shadows Into Light', cursive;
+    font-size: 32px;
 }
 
 .search{

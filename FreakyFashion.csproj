@@ -9,6 +9,22 @@
     <Compile Remove="Migrations\20200127183637_AddProductTable.Designer.cs" />
     <Compile Remove="Migrations\20200127183849_AddProductTable.cs" />
     <Compile Remove="Migrations\20200127183849_AddProductTable.Designer.cs" />
+    <Compile Remove="Migrations\20200127191241_AddConversionToUri.cs" />
+    <Compile Remove="Migrations\20200127191241_AddConversionToUri.Designer.cs" />
+    <Compile Remove="Migrations\20200127192213_SeedProductTable.cs" />
+    <Compile Remove="Migrations\20200127192213_SeedProductTable.Designer.cs" />
+    <Compile Remove="Migrations\20200127201946_SeedProductTable.cs" />
+    <Compile Remove="Migrations\20200127201946_SeedProductTable.Designer.cs" />
+    <Compile Remove="Migrations\20200127202634_SeedProductTable.cs" />
+    <Compile Remove="Migrations\20200127202634_SeedProductTable.Designer.cs" />
+    <Compile Remove="Migrations\20200127203425_SeedProductTable.cs" />
+    <Compile Remove="Migrations\20200127203425_SeedProductTable.Designer.cs" />
+    <Compile Remove="Migrations\20200127203753_SeedProductTable.cs" />
+    <Compile Remove="Migrations\20200127203753_SeedProductTable.Designer.cs" />
+    <Compile Remove="Migrations\20200127204029_SeedProductTable.cs" />
+    <Compile Remove="Migrations\20200127204029_SeedProductTable.Designer.cs" />
+    <Compile Remove="Migrations\20200128081816_foo.cs" />
+    <Compile Remove="Migrations\20200128081816_foo.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>
