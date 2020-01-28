@@ -17,5 +17,11 @@ namespace FreakyFashion.Data.Entities
             Price = price;
             ImageUri = imageUri;
         }
+
+        public Product(int id, string name, string description, double price, Uri imageUri)
+            : this(name, description, price, imageUri)
+        {
+            Id = id;
+        }
     }
 }
