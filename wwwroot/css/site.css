@@ -1,4 +1,8 @@
-﻿.align-right {
+﻿a, p, input {
+    font-family: 'Raleway', sans-serif;
+}
+
+.align-right {
     position: absolute;
     right: 16px;
 }
@@ -18,7 +22,7 @@
 }
 
 .header {
-    font-family: 'Shadows Into Light', cursive;
+    font-family: 'Rock Salt', cursive;
 }
 
 .hero {
@@ -56,8 +60,8 @@
 }
 
 .logo {
-    font-family: 'Shadows Into Light', cursive;
-    font-size: 78px;
+    font-family: 'Rock Salt', cursive;
+    font-size: 56px;
 }
 
 .navbar {
@@ -79,7 +83,6 @@
 .navbar-link:link {
     color: white;
     margin: 0 16px;
-    
 }
 
 navbar-link:visited {
@@ -104,8 +107,8 @@ navbar-link:visited {
 }
 
 .price {
-    font-family: 'Shadows Into Light', cursive;
-    font-size: 32px;
+    font-family: 'Rock Salt', cursive;
+    font-size: 24px;
 }
 
 .search{
