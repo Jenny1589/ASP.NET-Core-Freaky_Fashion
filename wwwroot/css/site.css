@@ -43,12 +43,16 @@
     height: 100%;
 }
 
-.input-group-text{
+.input-group-text {
     border-radius: 18px;
+    background-color: #ffa2ef;
+    color: white;
+    border-color: #ffa2ef;
 }
 
-.form-control{
+.form-control {
     border-radius: 18px;
+    border-color: #ffa2ef;
 }
 
 .logo {
