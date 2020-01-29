@@ -43,6 +43,14 @@
     height: 100%;
 }
 
+.input-group-text{
+    border-radius: 18px;
+}
+
+.form-control{
+    border-radius: 18px;
+}
+
 .logo {
     font-family: 'Shadows Into Light', cursive;
     font-size: 78px;
