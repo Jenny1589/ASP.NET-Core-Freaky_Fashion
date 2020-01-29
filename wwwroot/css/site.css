@@ -77,8 +77,13 @@ ul {
     justify-content: center;
 }
 
+.dropdown-item{
+    color: white;
+}
+
 .dropdown-item:hover {
     background-color: #ffa2ef;
+    color: black;
 }
 
 .header {
