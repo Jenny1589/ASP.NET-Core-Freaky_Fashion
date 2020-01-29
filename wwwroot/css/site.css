@@ -35,6 +35,40 @@ ul {
     color: white;
 }
 
+.categories{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    margin-top: 32px;
+    padding: 16px;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+}
+
+.category-img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.category-img-overlay {
+    position: absolute;
+    top: 0;
+    opacity: 0;
+    height: 100%;
+    width: 100%;
+    background-color: #ffa2ef;
+    color: white;
+    font-family: 'Rock Salt', cursive;
+    font-size: 32px;
+}
+
+.col{
+    justify-content: center;
+}
+
 .dropdown-item:hover {
     background-color: #ffa2ef;
 }
@@ -131,5 +165,19 @@ navbar-link:visited {
 
 .search{
     width: 25%;
+}
+
+.spot{
+    position: relative;
+    width: 300px;
+    height: 300px;
+    cursor: pointer;
+}
+
+.spot:hover .category-img-overlay {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 1;
 }
 
