@@ -2,6 +2,16 @@
     font-family: 'Raleway', sans-serif;
 }
 
+header{
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+main{
+    margin-top: 200px;
+}
+
 ul {
     list-style: none;
 }
