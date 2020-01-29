@@ -1,5 +1,11 @@
-﻿a, p, input {
+﻿a, p, input, footer {
     font-family: 'Raleway', sans-serif;
+}
+
+footer {
+    background-color: #ffa2ef;
+    color: black;
+    padding: 16px 0;
 }
 
 header {
@@ -106,6 +112,16 @@ ul {
     background-color: #ffa2ef;
     color: white;
     border-color: #ffa2ef;
+}
+
+.footer-icon{
+    margin-right: 8px;
+}
+
+.footer-info{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
 }
 
 .form-control {
