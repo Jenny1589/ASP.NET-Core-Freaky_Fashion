@@ -10,6 +10,7 @@
     }
 
     var highligtedCategories = Model.CategoryList.Where(c => c.IsHighlighted);
+    var popularProducts = Model.ProductList;
 
 }
     <div id="hero" class="carousel slide hero" data-ride="carousel">
@@ -55,3 +56,4 @@
     </div>
 
 <partial name="_Categories" model="highligtedCategories" />
+<partial name="_PopularProducts" model="popularProducts" />

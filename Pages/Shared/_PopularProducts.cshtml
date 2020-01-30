@@ -1,0 +1,40 @@
+﻿@using FreakyFashion.Data.Entities
+
+@model List<Product>
+
+@{ 
+    int counter = 0;
+}
+
+<div class="row mt-4">
+    <div class="col">
+        <h2 class="header">Today's freaky</h2>
+    </div>
+</div>
+
+@while(counter < Model.Count())
+{    
+    <div class="row">
+        @for(int i = 0; i < 4; i++)
+         {
+            @if (counter == Model.Count()) break;
+
+            var product = Model[counter];
+
+            <div class="col-3">
+                <div class="product-card">
+                    <img class="product-img" src="@product.ImageUri" />
+                    <h5 class="header">@product.Name</h5>
+                    <h5>@string.Format("{0:c}", product.Price)</h5>
+                </div>
+            </div>
+
+            counter++;
+        }
+
+    </div>
+}
+
+
+
+

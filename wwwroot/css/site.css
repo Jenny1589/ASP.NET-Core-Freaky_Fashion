@@ -1,4 +1,4 @@
-﻿a, p, input, footer {
+﻿* {
     font-family: 'Raleway', sans-serif;
 }
 
@@ -192,6 +192,17 @@ navbar-link:visited {
 .price {
     font-family: 'Rock Salt', cursive;
     font-size: 24px;
+}
+
+.product-card{
+    width: auto;
+    cursor: pointer;
+}
+
+.product-img{
+    width: 100%;
+    height: auto;
+    margin: 16px 0;
 }
 
 .search{
