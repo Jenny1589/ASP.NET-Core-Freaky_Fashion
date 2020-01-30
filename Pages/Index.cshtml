@@ -6,8 +6,11 @@
 
     bool IsActive(Product product)
     {
-        return product == Model.Products.First();
+        return product == Model.ProductList.First();
     }
+
+    var highligtedCategories = Model.CategoryList.Where(c => c.IsHighlighted);
+
 }
 
     <div id="hero" class="carousel slide hero" data-ride="carousel">
@@ -15,7 +18,7 @@
             @{ 
                 bool setActive = false;
             }
-            @foreach(var product in Model.Products){ 
+            @foreach(var product in Model.ProductList){
                 <div class="carousel-item hero-item @(setActive ? "" : " active")">
                     <div class="row">
                         <div class="col">
@@ -52,4 +55,4 @@
         </a>
     </div>
 
-<partial name="_Categories" />
+<partial name="_Categories" model="highligtedCategories" />

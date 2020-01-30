@@ -13,7 +13,8 @@ namespace FreakyFashion.Pages
         private readonly ILogger<IndexModel> _logger;
         private FreakyFashionContext _context;
 
-        public List<Product> Products { get; private set; }
+        public List<Product> ProductList { get; private set; }
+        public List<Category> CategoryList { get; private set; }
 
         public IndexModel(ILogger<IndexModel> logger, FreakyFashionContext context)
         {
@@ -23,7 +24,8 @@ namespace FreakyFashion.Pages
 
         public void OnGet()
         {
-            Products = _context.Products.ToList();
+            ProductList = _context.Products.ToList();
+            CategoryList = _context.Categories.ToList();
         }
     }
 }

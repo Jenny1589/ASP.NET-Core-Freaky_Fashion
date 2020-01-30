@@ -1,8 +1,5 @@
-﻿@page
-@model IndexModel
-@*
-    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@using FreakyFashion.Data.Entities
+@model IEnumerable<Category>
 
     <div class="categories">
         <div class="row">
@@ -12,23 +9,14 @@
         </div>
 
         <div class="row">
-            <div class="col">
-                <div class="spot">
-                    <img class="category-img" src="img/campaign.jpg" />
-                    <div class="category-img-overlay">Campaign</div>
+            @foreach (var category in Model)
+            {
+                <div class="col">
+                    <div class="spot">
+                        <img class="category-img" src="@category.ImageUri" />
+                        <div class="category-img-overlay">@category.Name</div>
+                    </div>
                 </div>
-            </div>
-            <div class="col">
-                <div class="spot">
-                    <img class="category-img" src="img/news.jpg" />
-                    <div class="category-img-overlay">News</div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="spot">
-                    <img class="category-img" src="img/spring.jpg" />
-                    <div class="category-img-overlay">Season</div>
-                </div>
-            </div>
+            }
         </div>
     </div>
