@@ -1,4 +1,10 @@
-﻿<!DOCTYPE html>
+﻿@using FreakyFashion.Data.Entities
+
+@{ 
+    var categoryList = ViewData["CategoryList"] as List<Category>;
+}
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -43,12 +49,13 @@
                 <li class="nav-item">
                     <a class="navbar-link p-3" href="/">Start</a> |
                 </li>
-                <li class="nav-item">
-                    <a class="navbar-link p-3" href="/">News</a> |
-                </li>
-                <li class="nav-item">
-                    <a class="navbar-link p-3" href="/">Campaign</a> |
-                </li>
+
+                @foreach (var category in categoryList.Where(c => c.IsHighlighted))
+                {
+                    <li class="nav-item">
+                        <a class="navbar-link p-3" href="/">@category.Name</a> |
+                    </li>
+                }
 
                 <li class="nav-item dropdown">
                     <a class="navbar-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -56,12 +63,13 @@
                     </a>
 
                     <div class="dropdown-menu bg-black" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">Tops</a>
-                        <a class="dropdown-item" href="#">Dresses</a>
-                        <a class="dropdown-item" href="#">Pants</a>
-                        <a class="dropdown-item" href="#">Cardigans</a>
-                        <div class="dropdown-divider"></div>
 
+                        @foreach (var category in categoryList.Where(c => !c.IsHighlighted))
+                        {
+                            <a class="dropdown-item" href="#">@category.Name</a>
+                        }
+
+                        <div class="dropdown-divider"></div>
                     </div>
                 </li>
             </ul>

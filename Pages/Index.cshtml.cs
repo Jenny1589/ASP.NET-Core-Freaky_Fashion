@@ -26,6 +26,7 @@ namespace FreakyFashion.Pages
         {
             ProductList = _context.Products.ToList();
             CategoryList = _context.Categories.ToList();
+            ViewData["CategoryList"] = CategoryList;
         }
     }
 }
