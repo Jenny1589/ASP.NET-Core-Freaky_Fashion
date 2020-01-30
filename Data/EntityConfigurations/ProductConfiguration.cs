@@ -46,6 +46,63 @@ namespace FreakyFashion.Data.EntityConfigurations
                             price: 1299.9,
                             imageUri: new Uri(uriString: "/img/product_03.jpg",
                                               uriKind: UriKind.Relative)),
+
+                new Product(id: 4,
+                            name: "Gorgeous blouse",
+                            description: "You will be the center of all attention, 100% guarantee!" +
+                                         "Gorgeous will bring out your freaky. Get ready to party!",
+                            price: 349.95,
+                            imageUri: new Uri(uriString: "/img/blouse_01.jpg",
+                                              uriKind: UriKind.Relative)),
+
+                new Product(id: 5,
+                            name: "Green flower dress",
+                            description: "This is deffinately THE dress." +
+                                         "You will see shapes you didn't know you had.",
+                            price: 3599.9,
+                            imageUri: new Uri(uriString: "/img/dress_01.jpg",
+                                              uriKind: UriKind.Relative)),
+
+                new Product(id: 6,
+                            name: "Cool jeans",
+                            description: "Too cool for school? Get theese jeans today!",
+                            price: 699,
+                            imageUri: new Uri(uriString: "/img/jeans_01.jpg",
+                                              uriKind: UriKind.Relative)),
+
+                new Product(id: 7,
+                            name: "Bad girl shirt",
+                            description: "You feel bad? No you are just freaky!" +
+                                         "Show the real you.",
+                            price: 295,
+                            imageUri: new Uri(uriString: "/img/shirt_01.jpg",
+                                              uriKind: UriKind.Relative)),
+                new Product(id: 8,
+                            name: "Freaky beach dress",
+                            description: "Own the beach this summer? Of course you want" +
+                                         "What are you waiting for?",
+                            price: 595,
+                            imageUri: new Uri(uriString: "/img/dress_02.jpg",
+                                              uriKind: UriKind.Relative)),
+                new Product(id: 9,
+                            name: "Get dirty jeans",
+                            description: "Casual, comfortable, enjoyable!" +
+                                         "No need to get stiff in theese pants",
+                            price: 899,
+                            imageUri: new Uri(uriString: "/img/jeans_02.jpg",
+                                              uriKind: UriKind.Relative)),
+                new Product(id: 10,
+                            name: "Pepsi Cola shirt",
+                            description: "Are you a Pepsi fan? Show it to the world!",
+                            price: 99,
+                            imageUri: new Uri(uriString: "/img/shirt_02.jpg",
+                                              uriKind: UriKind.Relative)),
+                new Product(id: 11,
+                            name: "Smokin' dress",
+                            description: "Elegant, beautiful, yes just gorgeous - Or as we say: Smokin'",
+                            price: 1999.99,
+                            imageUri: new Uri(uriString: "/img/dress_03.jpg",
+                                              uriKind: UriKind.Relative)),
             });
         }
     }

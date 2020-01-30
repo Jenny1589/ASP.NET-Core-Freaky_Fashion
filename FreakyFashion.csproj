@@ -25,6 +25,8 @@
     <Compile Remove="Migrations\20200127204029_SeedProductTable.Designer.cs" />
     <Compile Remove="Migrations\20200128081816_foo.cs" />
     <Compile Remove="Migrations\20200128081816_foo.Designer.cs" />
+    <Compile Remove="Migrations\20200130123805_SeedMoreProducts.cs" />
+    <Compile Remove="Migrations\20200130123805_SeedMoreProducts.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>
