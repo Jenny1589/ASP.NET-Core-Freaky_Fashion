@@ -37,6 +37,7 @@ main{
 
 ul {
     list-style: none;
+    padding: 0;
 }
 
 .align-right {
@@ -91,7 +92,6 @@ ul {
     justify-content: center;
     align-items: center;
     width: 100%;
-    padding: 32px 0 0 0;
 }
 
 .dropdown-item{
@@ -101,6 +101,19 @@ ul {
 .dropdown-item:hover {
     background-color: #ffa2ef;
     color: black;
+}
+
+.footer-header{
+    font-weight: 700;
+    margin: 0;
+}
+
+.footer-link{
+    font-size: 14px;
+}
+
+.footer-link:hover{
+    text-decoration: underline;
 }
 
 .header {

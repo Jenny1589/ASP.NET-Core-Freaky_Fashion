@@ -2,6 +2,9 @@
 
 @{ 
     var categoryList = ViewData["CategoryList"] as List<Category>;
+
+    var highlightedCategories = categoryList.Where(c => c.IsHighlighted);
+    var unHighlightedCategories = categoryList.Where(c => !c.IsHighlighted);
 }
 
 <!DOCTYPE html>
@@ -50,7 +53,7 @@
                     <a class="navbar-link p-3" href="/">Start</a> |
                 </li>
 
-                @foreach (var category in categoryList.Where(c => c.IsHighlighted))
+                @foreach (var category in highlightedCategories)
                 {
                     <li class="nav-item">
                         <a class="navbar-link p-3" href="/category/@category.Id">@category.Name</a> |
@@ -64,7 +67,7 @@
 
                     <div class="dropdown-menu bg-black" aria-labelledby="navbarDropdown">
 
-                        @foreach (var category in categoryList.Where(c => !c.IsHighlighted))
+                        @foreach (var category in unHighlightedCategories)
                         {
                             <a class="dropdown-item" href="/category/@category.Id">@category.Name</a>
                         }
@@ -115,6 +118,30 @@
                         </i>
                         Nyheter varje dag
                     </div>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-2">
+                    <h6 class="footer-header">Check this out:</h6>
+                    <ul>
+                        @foreach (var category in highlightedCategories)
+                        {
+                            <li>
+                                <a class="footer-link" href="/category/@category.Id">@category.Name</a>
+                            </li>
+                        }
+                    </ul>
+                </div>
+                <div class="col">
+                    <h6 class="footer-header">Categories:</h6>
+                    <ul>
+                        @foreach (var category in unHighlightedCategories)
+                        {   
+                            <li>
+                                <a class="footer-link" href="/category/@category.Id">@category.Name</a>
+                            </li>
+                        }
+                    </ul>                    
                 </div>
             </div>
             <div class="row">
