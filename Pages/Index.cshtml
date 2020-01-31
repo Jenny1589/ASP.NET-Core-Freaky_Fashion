@@ -4,11 +4,6 @@
 @{
     ViewData["Title"] = "Start";
 
-    bool IsActive(Product product)
-    {
-        return product == Model.ProductList.First();
-    }
-
     var highligtedCategories = Model.CategoryList.Where(c => c.IsHighlighted);
     var campaignProducts = Model.ProductList
         .Where(p => p.ProductCategories
