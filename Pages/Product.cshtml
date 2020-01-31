@@ -1,0 +1,21 @@
+﻿@page "{id}"
+@model FreakyFashion.ProductModel
+
+@{
+    ViewData["Title"] = Model.Product.Name;
+}
+
+<div class="row">
+    <div class="col-4">
+        <div class="img-container">
+            <img class="img" src="@Model.Product.ImageUri" />
+        </div>
+    </div>
+    <div class="col-8">
+        <h2 class="header">@Model.Product.Name</h2>
+        <p class="text-muted">XXXX-YYYYY-ZZZZZ</p>
+        <p>@Model.Product.Description</p>
+        <p class="price">@string.Format("{0:c}", Model.Product.Price)</p>
+        <button class="btn btn-freaky align-bottom w-25" >Buy</button>
+    </div>
+</div>
