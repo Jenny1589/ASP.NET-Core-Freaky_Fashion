@@ -87,13 +87,6 @@ ul {
     justify-content: center;
 }
 
-.copyright{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-}
-
 .dropdown-item{
     color: white;
 }
