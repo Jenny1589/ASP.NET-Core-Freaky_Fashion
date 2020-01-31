@@ -55,18 +55,12 @@ ul {
     border-bottom: 1px solid black;
 }
 
-.category-img {
-    display: block;
-    width: 100%;
-    height: auto;
-}
-
-.category-img-overlay {
+.img-overlay {
     position: absolute;
     top: 0;
     opacity: 0;
-    height: 100%;
     width: 100%;
+    height: 100%;
     background-color: #ffa2ef;
     color: black;
     font-family: 'Rock Salt', cursive;
@@ -199,7 +193,10 @@ navbar-link:visited {
 }
 
 .img-container{
-    width: auto;
+    position: relative;
+    display: block;
+    min-width: 100%;
+    height: auto;
 }
 
 .img{
@@ -212,14 +209,7 @@ navbar-link:visited {
     width: 25%;
 }
 
-.spot{
-    position: relative;
-    width: 300px;
-    height: 300px;
-    cursor: pointer;
-}
-
-.spot:hover .category-img-overlay {
+.img-container:hover .img-overlay {
     display: flex;
     justify-content: center;
     align-items: center;
