@@ -1,0 +1,49 @@
+﻿@using FreakyFashion.Data.Entities
+
+@model List<Product>
+
+@{
+    bool IsActive(Product product)
+    {
+        return product.Equals(Model.First());
+    }
+}
+
+<div id="hero" class="carousel slide hero" data-ride="carousel">
+    <div class="carousel-inner">
+           
+        @foreach (var product in Model)
+        {
+            <div class="carousel-item hero-item @(IsActive(product) ? "active" : "")">
+                <div class="row">
+                    <div class="col">
+                        <div class="hero-info">
+                            <h2 class="header">@product.Name</h2>
+                            <p>@product.Description</p>
+                            <div class="price">@string.Format("{0:C}", product.Price)</div>
+                            <a class="btn btn-freaky my-3" href="/product/@product.Id" role="button">Visa</a>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="hero-info">
+                            <img src="@product.ImageUri" class="d-block hero-image" alt="Image of @product.Name">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+
+    </div>
+    <a class="carousel-control-prev" href="#hero" role="button" data-slide="prev">
+        <i class="material-icons text-dark">
+            arrow_back_ios
+        </i>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#hero" role="button" data-slide="next">
+        <i class="material-icons text-dark">
+            arrow_forward_ios
+        </i>
+        <span class="sr-only">Next</span>
+    </a>
+</div>
