@@ -16,6 +16,14 @@ a:active {
     color: #ffa2ef;
 }
 
+body {
+    background-image: url(/img/background.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: white;
+    background-blend-mode: multiply;
+}
+
 footer {
     background-color: #ffa2ef;
     color: black;
@@ -31,6 +39,7 @@ header {
 }
 
 main{
+    background-color:white;
     min-height: 100vh;
     padding-top: 180px;
 }
