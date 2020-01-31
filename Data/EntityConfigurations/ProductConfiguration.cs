@@ -2,11 +2,20 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace FreakyFashion.Data.EntityConfigurations
 {
     public class ProductConfiguration : IEntityTypeConfiguration<Product>
     {
+        private FreakyFashionContext _context;
+
+        public ProductConfiguration(FreakyFashionContext context)
+        {
+            _context = context;
+        }
+
         public void Configure(EntityTypeBuilder<Product> builder)
         {
             builder.ToTable("Product");
@@ -29,7 +38,7 @@ namespace FreakyFashion.Data.EntityConfigurations
                             description: "Do you want to be the one to stand out in a crowd? " +
                                          "This skirt will fit for any occasion",
                             price: 499.9,
-                            imageUri: new Uri(uriString: "/img/product_01.jpg", 
+                            imageUri: new Uri(uriString: "/img/product_01.jpg",
                                               uriKind: UriKind.Relative)),
 
                 new Product(id: 2,
@@ -92,6 +101,7 @@ namespace FreakyFashion.Data.EntityConfigurations
                             price: 595,
                             imageUri: new Uri(uriString: "/img/dress_02.jpg",
                                               uriKind: UriKind.Relative)),
+
                 new Product(id: 9,
                             articleNumber: "85201-6354",
                             name: "Get dirty jeans",

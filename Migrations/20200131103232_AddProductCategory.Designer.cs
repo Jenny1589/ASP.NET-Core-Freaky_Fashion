@@ -3,14 +3,16 @@ using FreakyFashion.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace FreakyFashion.Migrations
 {
     [DbContext(typeof(FreakyFashionContext))]
-    partial class FreakyFashionContextModelSnapshot : ModelSnapshot
+    [Migration("20200131103232_AddProductCategory")]
+    partial class AddProductCategory
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -238,123 +240,6 @@ namespace FreakyFashion.Migrations
                     b.HasIndex("CategoryId");
 
                     b.ToTable("ProductCategory");
-
-                    b.HasData(
-                        new
-                        {
-                            ProductId = 1,
-                            CategoryId = 1
-                        },
-                        new
-                        {
-                            ProductId = 1,
-                            CategoryId = 3
-                        },
-                        new
-                        {
-                            ProductId = 1,
-                            CategoryId = 6
-                        },
-                        new
-                        {
-                            ProductId = 2,
-                            CategoryId = 2
-                        },
-                        new
-                        {
-                            ProductId = 2,
-                            CategoryId = 6
-                        },
-                        new
-                        {
-                            ProductId = 3,
-                            CategoryId = 2
-                        },
-                        new
-                        {
-                            ProductId = 3,
-                            CategoryId = 5
-                        },
-                        new
-                        {
-                            ProductId = 4,
-                            CategoryId = 1
-                        },
-                        new
-                        {
-                            ProductId = 4,
-                            CategoryId = 5
-                        },
-                        new
-                        {
-                            ProductId = 5,
-                            CategoryId = 3
-                        },
-                        new
-                        {
-                            ProductId = 5,
-                            CategoryId = 7
-                        },
-                        new
-                        {
-                            ProductId = 6,
-                            CategoryId = 6
-                        },
-                        new
-                        {
-                            ProductId = 7,
-                            CategoryId = 3
-                        },
-                        new
-                        {
-                            ProductId = 7,
-                            CategoryId = 4
-                        },
-                        new
-                        {
-                            ProductId = 8,
-                            CategoryId = 1
-                        },
-                        new
-                        {
-                            ProductId = 8,
-                            CategoryId = 7
-                        },
-                        new
-                        {
-                            ProductId = 9,
-                            CategoryId = 2
-                        },
-                        new
-                        {
-                            ProductId = 9,
-                            CategoryId = 6
-                        },
-                        new
-                        {
-                            ProductId = 10,
-                            CategoryId = 2
-                        },
-                        new
-                        {
-                            ProductId = 10,
-                            CategoryId = 4
-                        },
-                        new
-                        {
-                            ProductId = 11,
-                            CategoryId = 2
-                        },
-                        new
-                        {
-                            ProductId = 11,
-                            CategoryId = 3
-                        },
-                        new
-                        {
-                            ProductId = 11,
-                            CategoryId = 7
-                        });
                 });
 
             modelBuilder.Entity("FreakyFashion.Data.Entities.ProductCategory", b =>

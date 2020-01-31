@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace FreakyFashion.Data.Entities
 {
@@ -10,6 +11,7 @@ namespace FreakyFashion.Data.Entities
         public string Description { get; protected set; }
         public double Price { get; protected set; }
         public Uri ImageUri { get; protected set; }
+        public List<ProductCategory> ProductCategories { get; protected set; }
 
         public Product(string articleNumber, string name, string description, double price, Uri imageUri)
         {
