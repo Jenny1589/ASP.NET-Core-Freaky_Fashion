@@ -142,6 +142,10 @@ ul {
     border-color: #ffa2ef;
 }
 
+.link{
+    cursor: pointer;
+}
+
 .logo {
     font-family: 'Rock Salt', cursive;
     font-size: 48px;
@@ -194,9 +198,8 @@ navbar-link:visited {
     font-size: 24px;
 }
 
-.product-card{
+.img-container{
     width: auto;
-    cursor: pointer;
 }
 
 .product-img{
