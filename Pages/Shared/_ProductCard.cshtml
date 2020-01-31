@@ -1,0 +1,12 @@
+﻿@using FreakyFashion.Data.Entities
+
+@model Product
+
+
+<div class="col-3">
+    <a class="img-container link" href="/product/@Model.Id">
+        <img class="img my-3" src="@Model.ImageUri" />
+        <h5 class="header">@Model.Name</h5>
+        <div class="price">@string.Format("{0:c}", Model.Price)</div>
+    </a>
+</div>

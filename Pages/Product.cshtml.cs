@@ -1,6 +1,7 @@
 ﻿using FreakyFashion.Data;
 using FreakyFashion.Data.Entities;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace FreakyFashion
@@ -9,6 +10,7 @@ namespace FreakyFashion
     {
         private FreakyFashionContext _context;
         public Product Product { get; private set; }
+        public List<Product> RecommendedProductList { get; set; }
 
         public ProductModel(FreakyFashionContext context)
         {
@@ -19,6 +21,8 @@ namespace FreakyFashion
         {
             Product = _context.Products.Find(id);
             ViewData["CategoryList"] = _context.Categories.ToList();
+
+            RecommendedProductList = _context.Products.Where(p => !p.Equals(Product)).Take(4).ToList();
         }
     }
 }

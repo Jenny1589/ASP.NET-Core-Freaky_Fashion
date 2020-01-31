@@ -1,0 +1,13 @@
+﻿@using FreakyFashion.Data.Entities
+
+@model List<Product>
+
+
+<h4 class="header mt-5">Recommended for you</h4>
+
+<div class="row border-top border-dark">
+    @foreach(var product in Model)
+    {
+        <partial name="_ProductCard" model="product" />
+    }
+</div>
