@@ -1,10 +1,11 @@
 ﻿using FreakyFashion.Data.Entities;
 using FreakyFashion.Data.EntityConfigurations;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace FreakyFashion.Data
 {
-    public class FreakyFashionContext : DbContext
+    public class FreakyFashionContext : IdentityDbContext
     {
         public DbSet<Product> Products { get; set; }
         public DbSet<Category> Categories { get; set; }
@@ -15,6 +16,8 @@ namespace FreakyFashion.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            base.OnModelCreating(modelBuilder);
+
             modelBuilder.ApplyConfiguration(new ProductConfiguration(this));
             modelBuilder.ApplyConfiguration(new CategoryConfiguration());
             modelBuilder.ApplyConfiguration(new ProductCategoryConfiguration());
