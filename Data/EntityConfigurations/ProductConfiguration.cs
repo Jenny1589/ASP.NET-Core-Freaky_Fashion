@@ -2,8 +2,6 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace FreakyFashion.Data.EntityConfigurations
 {
@@ -23,6 +21,9 @@ namespace FreakyFashion.Data.EntityConfigurations
 
             builder.Property(p => p.ImageUri)
                 .HasConversion(value => value.ToString(), value => new Uri(value, UriKind.Relative))
+                .IsRequired();
+
+            builder.Property(p => p.UrlSlug)
                 .IsRequired();
 
             builder.HasData(new Product[] {
