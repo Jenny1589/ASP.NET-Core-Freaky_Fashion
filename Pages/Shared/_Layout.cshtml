@@ -56,7 +56,7 @@
                 @foreach (var category in highlightedCategories)
                 {
                     <li class="nav-item">
-                        <a class="navbar-link p-3" href="/category/@category.Id">@category.Name</a> |
+                        <a class="navbar-link p-3" href="/category/@category.UrlSlug">@category.Name</a> |
                     </li>
                 }
 
@@ -69,7 +69,7 @@
 
                         @foreach (var category in unHighlightedCategories)
                         {
-                            <a class="dropdown-item" href="/category/@category.Id">@category.Name</a>
+                            <a class="dropdown-item" href="/category/@category.UrlSlug">@category.Name</a>
                         }
 
                         <div class="dropdown-divider"></div>

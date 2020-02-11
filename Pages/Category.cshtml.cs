@@ -1,7 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using FreakyFashion.Data;
 using FreakyFashion.Data.Entities;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 
@@ -19,18 +21,22 @@ namespace FreakyFashion
             _context = context;
         }
 
-        public void OnGet(int id)
+        public async Task<IActionResult> OnGetAsync(string urlSlug)
         { 
-            Category = _context.Categories
+            Category = await _context.Categories
                 .Include(c => c.ProductCategories)
                 .ThenInclude(pc => pc.Product)
-                .FirstOrDefault(c => c.Id == id);
+                .FirstOrDefaultAsync(c => c.UrlSlug.Equals(urlSlug));
 
-            ProductList = Category?.ProductCategories
+            if (Category == null) return NotFound();
+
+            ProductList = Category.ProductCategories
                 .Select(pc => pc.Product)
                 .ToList();
 
             ViewData["CategoryList"] = _context.Categories.ToList();
+
+            return Page();
         }
     }
 }

@@ -12,7 +12,7 @@
             @foreach (var category in Model)
             {
                 <div class="col">
-                    <a class="img-container" href="/category/@category.Id">
+                    <a class="img-container" href="/category/@category.UrlSlug">
                         <img class="img" src="@category.ImageUri" />
                         <div class="img-overlay">@category.Name</div>
                     </a>
