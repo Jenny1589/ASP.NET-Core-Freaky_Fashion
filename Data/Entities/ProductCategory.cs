@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace FreakyFashion.Data.Entities
+﻿namespace FreakyFashion.Data.Entities
 {
     public class ProductCategory
     {
