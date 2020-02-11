@@ -9,13 +9,7 @@ namespace FreakyFashion.Data.EntityConfigurations
 {
     public class ProductConfiguration : IEntityTypeConfiguration<Product>
     {
-        private FreakyFashionContext _context;
-
-        public ProductConfiguration(FreakyFashionContext context)
-        {
-            _context = context;
-        }
-
+        
         public void Configure(EntityTypeBuilder<Product> builder)
         {
             builder.ToTable("Product");
