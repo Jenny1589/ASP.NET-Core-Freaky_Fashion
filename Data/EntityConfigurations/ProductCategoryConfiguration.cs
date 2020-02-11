@@ -45,8 +45,6 @@ namespace FreakyFashion.Data.EntityConfigurations
                 new ProductCategory(11, 3),
                 new ProductCategory(11, 7),
             });
-
-
         }
     }
 }
