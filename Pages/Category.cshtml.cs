@@ -34,8 +34,6 @@ namespace FreakyFashion
                 .Select(pc => pc.Product)
                 .ToList();
 
-            ViewData["CategoryList"] = _context.Categories.ToList();
-
             return Page();
         }
     }

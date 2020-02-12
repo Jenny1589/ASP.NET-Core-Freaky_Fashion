@@ -26,8 +26,6 @@ namespace FreakyFashion
 
             if (Product == null) return NotFound();
 
-
-            ViewData["CategoryList"] = _context.Categories.ToList();
             RecommendedProductList = _context.Products.Where(p => !p.Equals(Product)).Take(4).ToList();
 
             return Page();

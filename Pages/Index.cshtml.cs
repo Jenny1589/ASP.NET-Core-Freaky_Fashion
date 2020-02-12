@@ -31,7 +31,6 @@ namespace FreakyFashion.Pages
                 .ToList();
 
             CategoryList = _context.Categories.ToList();
-            ViewData["CategoryList"] = CategoryList;
         }
     }
 }

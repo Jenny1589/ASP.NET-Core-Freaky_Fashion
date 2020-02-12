@@ -1,0 +1,33 @@
+﻿@using FreakyFashion.Data.Entities
+
+@model List<Category>
+
+@{
+    var highlightedCategories = Model.Where(c => c.IsHighlighted);
+    var unHighlightedCategories = Model.Where(c => !c.IsHighlighted);
+}
+
+    <div class="row mt-4">
+        <div class="col-2">
+            <h6 class="font-weight-bold">Check this out:</h6>
+            <ul>
+                @foreach (var category in highlightedCategories)
+                {
+                    <li>
+                        <a class="footer-link" href="/category/@category.Id">@category.Name</a>
+                    </li>
+                }
+            </ul>
+        </div>
+        <div class="col">
+            <h6 class="font-weight-bold">Categories:</h6>
+            <ul>
+                @foreach (var category in unHighlightedCategories)
+                {
+                    <li>
+                        <a class="footer-link" href="/category/@category.Id">@category.Name</a>
+                    </li>
+                }
+            </ul>
+        </div>
+    </div>
