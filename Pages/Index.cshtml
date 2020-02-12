@@ -4,7 +4,6 @@
 @{
     ViewData["Title"] = "Start";
 
-    var highligtedCategories = Model.CategoryList.Where(c => c.IsHighlighted);
     var campaignProducts = Model.ProductList
         .Where(p => p.ProductCategories
                         .Select(pc => pc.Category.Name)
@@ -12,9 +11,8 @@
         .ToList();
 
     var popularProducts = Model.ProductList.GetRange(0, 8);
-
 }
   
 <partial name="_Hero" model="campaignProducts" />  
-<partial name="_Categories" model="highligtedCategories" />
+<partial name="_Categories" model="Model.HighlightedCategories" />
 <partial name="_PopularProducts" model="popularProducts" />

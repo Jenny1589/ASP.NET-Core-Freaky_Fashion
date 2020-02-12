@@ -16,7 +16,7 @@ namespace FreakyFashion.Pages
         private FreakyFashionContext _context;
 
         public List<Product> ProductList { get; private set; }
-        public List<Category> CategoryList { get; private set; }
+        public List<Category> HighlightedCategories { get; private set; }
 
         public IndexModel(FreakyFashionContext context)
         {
@@ -30,7 +30,7 @@ namespace FreakyFashion.Pages
                 .ThenInclude(pc => pc.Category)
                 .ToListAsync();
 
-            CategoryList = await _context.Categories
+            HighlightedCategories = await _context.Categories
                 .Where(c => c.IsHighlighted)
                 .ToListAsync();
 
