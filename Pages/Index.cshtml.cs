@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using FreakyFashion.Data;
 using FreakyFashion.Data.Entities;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
@@ -21,14 +23,18 @@ namespace FreakyFashion.Pages
             _context = context;
         }
 
-        public void OnGet()
+        public async Task<IActionResult> OnGetAsync()
         {
-            ProductList = _context.Products
+            ProductList = await _context.Products
                 .Include(p => p.ProductCategories)
                 .ThenInclude(pc => pc.Category)
-                .ToList();
+                .ToListAsync();
 
-            CategoryList = _context.Categories.ToList();
+            CategoryList = await _context.Categories
+                .Where(c => c.IsHighlighted)
+                .ToListAsync();
+
+            return Page();
         }
     }
 }
