@@ -11,15 +11,13 @@ namespace FreakyFashion.Pages
 {
     public class IndexModel : PageModel
     {
-        private readonly ILogger<IndexModel> _logger;
         private FreakyFashionContext _context;
 
         public List<Product> ProductList { get; private set; }
         public List<Category> CategoryList { get; private set; }
 
-        public IndexModel(ILogger<IndexModel> logger, FreakyFashionContext context)
+        public IndexModel(FreakyFashionContext context)
         {
-            _logger = logger;
             _context = context;
         }
 
