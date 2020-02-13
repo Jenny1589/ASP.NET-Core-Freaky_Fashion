@@ -1,0 +1,67 @@
+﻿
+@{
+    Layout = "/Pages/Shared/_Layout.cshtml";
+    ViewData["Title"] = "_Layout";
+}
+
+@section Style{
+    <style>
+
+        .sidebar {
+            margin: -16px 16px -48px -48px;
+            padding: 24px;
+        }
+
+        .sidebar-icon {
+            margin-right: 4px;
+        }
+
+        .sidebar-link{
+            display: flex;
+            align-items: center;
+            margin: 16px 0;
+        }
+
+        .sidebar-link:hover{
+            color: gray;
+        }
+
+
+
+    </style>
+
+    @RenderSection("Style", required: false)
+}
+
+<div class="d-flex h-100">
+    <div class="sidebar w-25 align-self-stretch bg-light">
+        <a class="sidebar-link" asp-area="Admin" asp-page="/Index">
+            <i class="material-icons sidebar-icon">
+                dashboard
+            </i>
+            Dashboard
+        </a>
+        <a class="sidebar-link" asp-area="Admin" asp-page="/AdminProduct/Index">
+            <i class="material-icons sidebar-icon">
+                local_mall
+            </i>
+            Products
+        </a>
+        <a class="sidebar-link" asp-area="Admin" asp-page="/AdminCategory/Index">
+            <i class="material-icons sidebar-icon">
+                category
+            </i>
+            Categories
+        </a>
+    </div>
+
+    <div class="w-75">
+        @RenderBody()
+    </div>
+</div>
+
+@section Scripts{
+    @RenderSection("Scripts", required: false)
+}
+
+

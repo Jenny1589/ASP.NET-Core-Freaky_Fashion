@@ -1,19 +1,21 @@
 ﻿@using FreakyFashion.Data.Entities
 
 <!DOCTYPE html>
-<html lang="en">
+<html class="h-100" lang="en">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - FreakyFashion</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link href="https://fonts.googleapis.com/css?family=Raleway|Rock+Salt&display=swap" 
+    <link href="https://fonts.googleapis.com/css?family=Raleway|Rock+Salt&display=swap"
           rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
           rel="stylesheet">
     <link rel="stylesheet" href="~/css/site.css" />
+
+    @RenderSection("Style", required: false)
 </head>
-<body>
+<body class="h-100">
     <header>
         <nav class="navbar navbar-dark bg-black p-0">
             <div class="navbar-row pt-4">
@@ -32,12 +34,9 @@
                 </div>
 
                 <span class="align-right d-flex">
-                    <a href="/Identity/Account/Login" class="navbar-link d-flex align-items-center">
-                        <i class="material-icons navbar-icon m-1">
-                            meeting_room
-                        </i>
-                        Sign in
-                    </a>
+                    <span>
+                        @await Component.InvokeAsync("AccountIcons")
+                    </span>
                     <a href="#" class="navbar-link d-flex align-items-center">
                         <i class="material-icons navbar-icon m-1">
                             shopping_cart
@@ -49,11 +48,11 @@
             </div>
 
             @await Component.InvokeAsync("NavLinks", new { isFooter = false })
-           
-        </nav> 
+
+            </nav> 
     </header>
-    <div class="container">
-        <main role="main" class="px-5 pb-5">
+    <div class="container h-100">
+        <main role="main" class="px-5 pb-5 h-100">
             @RenderBody()
         </main>
     </div>
