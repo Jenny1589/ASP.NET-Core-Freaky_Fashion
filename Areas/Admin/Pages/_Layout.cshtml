@@ -6,27 +6,24 @@
 
 @section Style{
     <style>
+        .content{
+            overflow-y: auto;
+        }
 
         .sidebar {
             margin: -16px 16px -48px -48px;
             padding: 24px;
         }
 
-        .sidebar-icon {
-            margin-right: 4px;
-        }
-
-        .sidebar-link{
+        .admin-link{
             display: flex;
             align-items: center;
             margin: 16px 0;
         }
 
-        .sidebar-link:hover{
+        .admin-link:hover{
             color: gray;
         }
-
-
 
     </style>
 
@@ -35,27 +32,27 @@
 
 <div class="d-flex h-100">
     <div class="sidebar w-25 align-self-stretch bg-light">
-        <a class="sidebar-link" asp-area="Admin" asp-page="/Index">
-            <i class="material-icons sidebar-icon">
+        <a class="admin-link" asp-area="Admin" asp-page="/Index">
+            <i class="material-icons mr-2">
                 dashboard
             </i>
             Dashboard
         </a>
-        <a class="sidebar-link" asp-area="Admin" asp-page="/AdminProduct/Index">
-            <i class="material-icons sidebar-icon">
+        <a class="admin-link" asp-area="Admin" asp-page="/AdminProduct/Index">
+            <i class="material-icons mr-2">
                 local_mall
             </i>
             Products
         </a>
-        <a class="sidebar-link" asp-area="Admin" asp-page="/AdminCategory/Index">
-            <i class="material-icons sidebar-icon">
+        <a class="admin-link" asp-area="Admin" asp-page="/AdminCategory/Index">
+            <i class="material-icons mr-2">
                 category
             </i>
             Categories
         </a>
     </div>
 
-    <div class="w-75">
+    <div class="content w-75">
         @RenderBody()
     </div>
 </div>

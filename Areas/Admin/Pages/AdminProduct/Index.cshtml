@@ -2,58 +2,73 @@
 @model FreakyFashion.Areas.Admin.AdminProduct.IndexModel
 
 <p>
-    <a asp-page="Create">Create New</a>
+    <a class="badge badge-pill badge-dark d-flex align-items-center p-2" style="width: 130px;" asp-page="Create">
+        <i class="material-icons mr-2">
+            add
+        </i>
+        Add product
+    </a>
 </p>
 <table class="table">
     <thead>
         <tr>
-            <th>
+            <th></th>
+            <th class="w-25">
                 @Html.DisplayNameFor(model => model.Product[0].ArticleNumber)
+            </th>
+            <th class="w-25">
+                @Html.DisplayNameFor(model => model.Product[0].Name)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Product[0].Description)
             </th>
-            <th>
+            <th class="w-25">
                 @Html.DisplayNameFor(model => model.Product[0].Price)
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Product[0].ImageUri)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Product[0].Name)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Product[0].UrlSlug)
-            </th>
-            <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model.Product) {
+        @foreach (var item in Model.Product) {
         <tr>
             <td>
+                <a class="admin-link d-flex align-items-center" 
+                   asp-area="Admin" asp-page="./Edit" asp-route-id="@item.Id">
+                  
+                    <i class="material-icons mr-2">
+                        edit
+                    </i>
+                    Edit
+                </a> 
+
+                <a class="admin-link d-flex align-items-center" 
+                   asp-page="./Details" asp-route-id="@item.Id">
+                    <i class="material-icons mr-2">
+                        info
+                    </i>
+                    Details
+                </a> 
+
+                <a class="admin-link d-flex align-items-center"
+                   asp-page="./Delete" asp-route-id="@item.Id">
+                    <i class="material-icons mr-2">
+                        delete
+                    </i>
+                    Delete
+                </a>
+            </td>
+            <td>
                 @Html.DisplayFor(modelItem => item.ArticleNumber)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Description)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Price)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ImageUri)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Name)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.UrlSlug)
+                <small>@Html.DisplayFor(modelItem => item.Description)</small>
             </td>
             <td>
-                <a asp-area="Admin" asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+                @string.Format("{0:c}", item.Price)
             </td>
+
         </tr>
 }
     </tbody>
