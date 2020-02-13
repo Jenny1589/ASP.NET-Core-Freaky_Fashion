@@ -8,35 +8,35 @@
     var unHighlightedCategories = Model.Where(c => !c.IsHighlighted);
 }
 
-<ul class="navbar-row text-white p-0 pt-4">
-    <li class="nav-item">
-        <a class="navbar-link p-3" href="/">Start</a> |
-    </li>
-
-    @foreach (var category in highlightedCategories)
-    {
+    <ul class="navbar-row text-white p-0 pt-4">
         <li class="nav-item">
-            <a class="navbar-link p-3" href="/category/@category.UrlSlug">@category.Name</a> |
+            <a class="navbar-link p-3" href="/">Start</a> |
         </li>
-    }
 
-    <li class="nav-item dropdown">
-        <a class="navbar-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Categories
-        </a>
+        @foreach (var category in highlightedCategories)
+        {
+            <li class="nav-item">
+                <a class="navbar-link p-3" href="/category/@category.UrlSlug">@category.Name</a> |
+            </li>
+        }
 
-        <div class="dropdown-menu bg-black" aria-labelledby="navbarDropdown">
+        <li class="nav-item dropdown">
+            <a class="navbar-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Categories
+            </a>
 
-            @foreach (var category in unHighlightedCategories)
-            {
-                <a class="dropdown-item" href="/category/@category.UrlSlug">@category.Name</a>
-            }
+            <div class="dropdown-menu bg-black" aria-labelledby="navbarDropdown">
 
-            <div class="dropdown-divider"></div>
-        </div>
-    </li>
+                @foreach (var category in unHighlightedCategories)
+                {
+                    <a class="dropdown-item" href="/category/@category.UrlSlug">@category.Name</a>
+                }
 
-</ul>
+                <div class="dropdown-divider"></div>
+            </div>
+        </li>
+        @await Component.InvokeAsync("AdminNav")
+    </ul>
 
-@await Component.InvokeAsync("AdminNav")
+
 
