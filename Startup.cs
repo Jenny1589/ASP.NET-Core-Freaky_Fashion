@@ -32,9 +32,18 @@ namespace FreakyFashion
             });
 
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+                .AddRoles<IdentityRole>()
                 .AddEntityFrameworkStores<FreakyFashionContext>();
 
+            services.AddAuthorization(options =>
+                options.AddPolicy("IsAdministrator", policy =>
+                    policy.RequireRole("Administrator")));
+
             services.AddRazorPages()
+                .AddRazorPagesOptions(options =>
+                {
+                    options.Conventions.AuthorizeAreaFolder("Admin", "/", "IsAdministrator");
+                })
                 .AddRazorRuntimeCompilation();
 
             services.AddMvc();
