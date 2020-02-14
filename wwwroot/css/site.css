@@ -39,7 +39,7 @@ header {
 }
 
 main{
-    background-color:white;
+    background-color: white;
     min-height: 100vh;
     padding-top: 180px;
 }
@@ -172,6 +172,10 @@ ul {
 .logo {
     font-family: 'Rock Salt', cursive;
     font-size: 48px;
+}
+
+.mainBg{
+    height: 100vh;
 }
 
 .navbar {

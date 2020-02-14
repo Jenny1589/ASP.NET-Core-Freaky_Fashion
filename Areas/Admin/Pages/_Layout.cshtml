@@ -15,6 +15,10 @@
             padding: 24px;
         }
 
+        .admin-container {
+            height: 600px;
+        }
+
         .admin-link{
             display: flex;
             align-items: center;
@@ -39,7 +43,7 @@
     @RenderSection("Style", required: false)
 }
 
-<div class="d-flex h-100">
+<div class="admin-container d-flex">
     <div class="sidebar w-25 align-self-stretch bg-light">
         <a class="admin-link" asp-area="Admin" asp-page="/Index">
             <i class="material-icons mr-2">
