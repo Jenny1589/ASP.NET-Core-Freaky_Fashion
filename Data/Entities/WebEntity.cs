@@ -24,8 +24,13 @@ namespace FreakyFashion.Data.Entities
         public string UrlSlug { get; protected set; }
 
         public WebEntity(int id, string name)
+            : this(name)
         {
             Id = id;
+        }
+
+        public WebEntity(string name)
+        {
             Name = name;
         }
     }

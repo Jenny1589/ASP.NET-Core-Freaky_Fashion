@@ -13,5 +13,10 @@
             ProductId = productId;
             CategoryId = categoryId;
         }
+
+        public ProductCategory(int categoryId)
+        {
+            CategoryId = categoryId;
+        }
     }
 }

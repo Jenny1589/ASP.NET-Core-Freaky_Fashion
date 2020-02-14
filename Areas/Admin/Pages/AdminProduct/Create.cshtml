@@ -32,34 +32,56 @@
             <div class="col">
                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                 <div class="form-group w-75">
-                    <label asp-for="Product.Name" class="control-label"></label>
-                    <input asp-for="Product.Name" class="form-control" />
-                    <span asp-validation-for="Product.Name" class="text-danger"></span>
+                    <label asp-for="ProductModel.ProductName" class="control-label"></label>
+                    <input asp-for="ProductModel.ProductName" class="form-control" />
+                    <span asp-validation-for="ProductModel.ProductName" class="text-danger"></span>
                 </div>
                 <div class="form-row">
                     <div class="form-group mr-4">
-                        <label asp-for="Product.ArticleNumber" class="control-label"></label>
-                        <input asp-for="Product.ArticleNumber" class="form-control" />
-                        <span asp-validation-for="Product.ArticleNumber" class="text-danger"></span>
+                        <label asp-for="ProductModel.ArticleNumber" class="control-label"></label>
+                        <input asp-for="ProductModel.ArticleNumber" class="form-control" />
+                        <span asp-validation-for="ProductModel.ArticleNumber" class="text-danger"></span>
                     </div>
 
-                    <div class="form-group ml-4">
-                        <label asp-for="Product.Price" class="control-label"></label>
-                        <input asp-for="Product.Price" class="form-control" />
-                        <span asp-validation-for="Product.Price" class="text-danger"></span>
+                    <div class="form-group mr-4 ml-4">
+                        <label asp-for="ProductModel.Price" class="control-label"></label>
+                        <input asp-for="ProductModel.Price" class="form-control" />
+                        <span asp-validation-for="ProductModel.Price" class="text-danger"></span>
+                    </div>
+
+                    <div class="admin-dropdown form-group ml-4">
+                        <label for="categoryInput" class="control-label">Categories</label>
+                        <div id="categoryInput" class="form-control">
+                            <div class="admin-dropdown-toggle d-flex align-items-center justify-content-between" id="categoryDropdownToggle" role="button" aria-haspopup="true" aria-expanded="false">
+                                Choose categories...
+                                <i class="material-icons">
+                                    arrow_drop_down
+                                </i>
+                            </div>
+
+                            <div id="categoryDropdown" class="admin-dropdown-menu p-2" aria-labelledby="categoryDropdownToggle">
+                                @foreach (var category in Model.CategoryList)
+                                {
+                                    <div class="admin-dropdown-item">
+                                        <input name="CategoryId" id="@category.Id" class="dropdown-checkbox" type="checkbox" value="@category.Id"/>
+                                        <label for="@category.Id">@category.Name</label>
+                                    </div>
+                                }
+                            </div>
+                        </div>
                     </div>
                 </div>
 
                 <div class="form-group">
-                    <label asp-for="Product.Description" class="control-label"></label>
-                    <textarea rows="5" asp-for="Product.Description" class="form-control"></textarea>
-                    <span asp-validation-for="Product.Description" class="text-danger"></span>
+                    <label asp-for="ProductModel.Description" class="control-label"></label>
+                    <textarea rows="5" asp-for="ProductModel.Description" class="form-control"></textarea>
+                    <span asp-validation-for="ProductModel.Description" class="text-danger"></span>
                 </div>
 
                 <div class="form-group w-75">
-                    <label asp-for="Product.ImageUri" class="control-label"></label>
-                    <input asp-for="Product.ImageUri" class="form-control" />
-                    <span asp-validation-for="Product.ImageUri" class="text-danger"></span>
+                    <label asp-for="ProductModel.ImageUri" class="control-label"></label>
+                    <input asp-for="ProductModel.ImageUri" class="form-control" />
+                    <span asp-validation-for="ProductModel.ImageUri" class="text-danger"></span>
                 </div>
             </div>
         </div>
@@ -67,4 +89,43 @@
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+
+    <script>
+        (function () {
+            let dropdownIcon = document.createElement("i");
+
+            dropdownIcon.classList.add("material-icons");
+            dropdownIcon.textContent = "arrow_drop_down";
+            
+            let categoryDropdown = document.getElementById("categoryDropdown");
+
+            function toggleDropdown() {
+                categoryDropdown.classList.toggle("show");
+            }
+
+            document.getElementById("categoryDropdownToggle").addEventListener("click", function () {
+                if (categoryDropdown.classList.contains("show")) {
+
+                    let nbrSelected = 0;
+                    var checkboxes = document.getElementsByClassName("dropdown-checkbox");
+
+                    for (let i = 0; i < checkboxes.length; i++) {
+
+                        if (checkboxes[i].checked) {
+                            nbrSelected++;
+                        }                        
+                    }
+
+                    let dropdown = document.getElementById("categoryDropdownToggle");
+
+                    if (nbrSelected === 0) dropdown.textContent = "Choose categories";
+                    else dropdown.textContent = nbrSelected + " categories"
+
+                    dropdown.append(dropdownIcon);
+                }
+
+                toggleDropdown();
+            });
+        })()
+    </script>
 }
