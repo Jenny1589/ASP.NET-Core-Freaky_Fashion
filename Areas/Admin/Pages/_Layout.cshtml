@@ -29,13 +29,24 @@
             color: gray;
         }
 
+        .sublink{
+            margin-left: 24px;
+        }
+
         .btn-admin {
             display: flex;
             align-items: center;
-            border: 2px solid #ffa2ef;
-            border-radius: 4px;
-            background-color: white;
-            color: black;
+            flex-wrap: nowrap;
+            width: max-content;
+            padding: 8px 16px;
+            border-radius: 32px;
+            background-color: #343a40;
+            color: white;
+        }
+
+        .btn-admin:hover {
+            background-color: black;
+            color: white;
         }
 
     </style>
@@ -57,11 +68,23 @@
             </i>
             Products
         </a>
+        <a class="admin-link sublink" asp-area="Admin" asp-page="/AdminProduct/Create">
+            <i class="material-icons mr-2">
+                add
+            </i>
+            Add product
+        </a>
         <a class="admin-link" asp-area="Admin" asp-page="/AdminCategory/Index">
             <i class="material-icons mr-2">
                 category
             </i>
             Categories
+        </a>
+        <a class="admin-link sublink" asp-area="Admin" asp-page="/AdminCategory/Create">
+            <i class="material-icons mr-2">
+                add
+            </i>
+            Add category
         </a>
     </div>
 
