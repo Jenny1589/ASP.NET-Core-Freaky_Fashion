@@ -1,0 +1,22 @@
+﻿@page
+@model FreakyFashion.SearchModel
+
+
+<h2 class="header">Search result</h2>
+<p>Found @Model.SearchResult.Count() hits on @Model.Query </p>
+
+@foreach(var product in Model.SearchResult)
+{
+    <a href="~/Product/@product.UrlSlug">
+        <div class="row my-2 py-3 border rounded">
+            <div class="col-2">
+                <img class="img" src="@product.ImageUri" />
+            </div>
+            <div class="col">
+                <h4>@product.Name</h4>
+                <p>@string.Format("{0:c}", product.Price)</p>
+            </div>
+        </div>
+    </a>
+}
+

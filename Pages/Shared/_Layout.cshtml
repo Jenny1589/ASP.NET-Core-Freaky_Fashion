@@ -20,18 +20,20 @@
         <nav class="navbar navbar-dark bg-black p-0">
             <div class="navbar-row pt-4">
                 <a class="navbar-brand logo navbar-link px-3 py-1" href="/">Freaky Fashion</a>
-
-                <div class="input-group search">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text">
-                            <i class="material-icons">
-                                search
-                            </i>
-                        </span>
+                <form class="d-flex" action="~/Search" target="_self">
+                    <div class="input-group search">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">
+                                <i class="material-icons">
+                                    search
+                                </i>
+                            </span>
+                        </div>
+                        
+                        <input name="query" type="search" class="form-control" placeholder="Search..." aria-label="Search" />
                     </div>
-
-                    <input type="text" class="form-control" placeholder="Search..." aria-label="Search" />
-                </div>
+                </form>
+                
 
                 <span class="align-right d-flex">
                     <span>
@@ -110,3 +112,4 @@
     @RenderSection("Scripts", required: false)
 </body>
 </html>
+
