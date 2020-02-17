@@ -1,7 +1,9 @@
 ﻿using FreakyFashion.Data;
 using FreakyFashion.Data.Entities;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -29,6 +31,23 @@ namespace FreakyFashion
             RecommendedProductList = _context.Products.Where(p => !p.Equals(Product)).Take(4).ToList();
 
             return Page();
+        }
+
+        public IActionResult OnPost(int productId)
+        {
+            var serializedCart = HttpContext.Session.GetString("Cart");
+
+            var cart = JsonConvert.DeserializeObject<Cart>(serializedCart);
+
+            Product = _context.Products
+                .FirstOrDefault(p => p.Id == productId);
+
+            cart.Add(Product);
+
+            serializedCart = JsonConvert.SerializeObject(cart);
+            HttpContext.Session.SetString("Cart", serializedCart);
+
+            return RedirectToPage();
         }
     }
 }

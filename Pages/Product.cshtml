@@ -16,7 +16,11 @@
         <p class="text-muted">Art.nr: @Model.Product.ArticleNumber</p>
         <p>@Model.Product.Description</p>
         <p class="price">@string.Format("{0:c}", Model.Product.Price)</p>
-        <button class="btn btn-freaky align-bottom w-25" >Buy</button>
+
+        <form method="post">
+            <input name="productId" type="hidden" asp-for="Product.Id" />
+            <button class="btn btn-freaky align-bottom w-25">Buy</button>
+        </form>        
     </div>
 </div>
 

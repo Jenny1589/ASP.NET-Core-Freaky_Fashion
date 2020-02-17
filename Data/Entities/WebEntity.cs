@@ -6,7 +6,7 @@ namespace FreakyFashion.Data.Entities
     {
         public int Id { get; protected set; }
 
-        private string _name;
+        protected string _name;
         public string Name
         {
             get { return _name; }
