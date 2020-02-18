@@ -50,7 +50,7 @@ namespace FreakyFashion.Data
 
         private static void SeedUsers(ModelBuilder modelBuilder, List<IdentityRole> roles)
         {
-            var hasher = new PasswordHasher<IdentityUser>();
+            var hasher = new PasswordHasher<FreakyFashionUser>();
 
             var admin = new FreakyFashionUser()
             {
