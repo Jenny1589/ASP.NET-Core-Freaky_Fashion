@@ -27,6 +27,12 @@
     <Compile Remove="Migrations\20200128081816_foo.Designer.cs" />
     <Compile Remove="Migrations\20200130123805_SeedMoreProducts.cs" />
     <Compile Remove="Migrations\20200130123805_SeedMoreProducts.Designer.cs" />
+    <Compile Remove="Migrations\20200217141301_AddUserData.cs" />
+    <Compile Remove="Migrations\20200217141301_AddUserData.Designer.cs" />
+    <Compile Remove="Migrations\20200217142105_AddUserData.cs" />
+    <Compile Remove="Migrations\20200217142105_AddUserData.Designer.cs" />
+    <Compile Remove="Migrations\20200217143156_AddUserData.cs" />
+    <Compile Remove="Migrations\20200217143156_AddUserData.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>

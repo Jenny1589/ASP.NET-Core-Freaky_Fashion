@@ -9,7 +9,7 @@ using System.Linq;
 
 namespace FreakyFashion.Data
 {
-    public class FreakyFashionContext : IdentityDbContext
+    public class FreakyFashionContext : IdentityDbContext<FreakyFashionUser>
     {
         public DbSet<Product> Products { get; set; }
         public DbSet<Category> Categories { get; set; }
