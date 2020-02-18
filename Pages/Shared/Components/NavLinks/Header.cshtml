@@ -35,7 +35,13 @@
                 <div class="dropdown-divider"></div>
             </div>
         </li>
-        @await Component.InvokeAsync("AdminNav")
+        <li class="align-right">
+            <div class="d-flex">
+                @await Component.InvokeAsync("AdminNav")
+                @await Component.InvokeAsync("SignOut")
+            </div>
+        </li>
+        
     </ul>
 
 
