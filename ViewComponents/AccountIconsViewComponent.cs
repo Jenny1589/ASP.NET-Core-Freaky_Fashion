@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using FreakyFashion.Data.Entities;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -9,11 +10,11 @@ namespace FreakyFashion.ViewComponents
 {
     public class AccountIconsViewComponent : ViewComponent
     {
-        private readonly UserManager<IdentityUser> _userManager;
-        private readonly SignInManager<IdentityUser> _signInManager;
+        private readonly UserManager<FreakyFashionUser> _userManager;
+        private readonly SignInManager<FreakyFashionUser> _signInManager;
 
-        public AccountIconsViewComponent(UserManager<IdentityUser> userManager, 
-            SignInManager<IdentityUser> signInManager)
+        public AccountIconsViewComponent(UserManager<FreakyFashionUser> userManager, 
+            SignInManager<FreakyFashionUser> signInManager)
         {
             _userManager = userManager;
             _signInManager = signInManager;
