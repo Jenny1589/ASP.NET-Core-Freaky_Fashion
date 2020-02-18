@@ -13,6 +13,7 @@ namespace FreakyFashion.Data
     {
         public DbSet<Product> Products { get; set; }
         public DbSet<Category> Categories { get; set; }
+        public DbSet<Order> Orders { get; set; }
 
         public FreakyFashionContext(DbContextOptions<FreakyFashionContext> options)
             :base(options)
@@ -25,6 +26,7 @@ namespace FreakyFashion.Data
             modelBuilder.ApplyConfiguration(new ProductConfiguration());
             modelBuilder.ApplyConfiguration(new CategoryConfiguration());
             modelBuilder.ApplyConfiguration(new ProductCategoryConfiguration());
+            modelBuilder.ApplyConfiguration(new OrderConfiguration());
 
             var roles = SeedRoles(modelBuilder);
             SeedUsers(modelBuilder, roles);

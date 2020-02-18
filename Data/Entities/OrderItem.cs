@@ -4,6 +4,7 @@ namespace FreakyFashion.Data.Entities
 {
     public class OrderItem
     {
+        public int Id { get; protected set; }
         public Product Product { get; protected set; }
         public uint Count { get; protected set; } = 1;
         public double Cost
@@ -13,6 +14,12 @@ namespace FreakyFashion.Data.Entities
                 return Count * Product.Price;
             }
         }
+
+        public int OrderId { get; protected set; }
+        public Order Order { get; protected set; }
+
+        protected OrderItem()
+        {}
 
         public OrderItem(Product product)
         {
