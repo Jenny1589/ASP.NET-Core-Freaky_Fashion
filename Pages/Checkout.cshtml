@@ -6,37 +6,103 @@
 
 <h2 class="header">@ViewData["Title"]</h2>
 
-@foreach (var orderItem in Model.Cart.CartContent)
+@if (Model.Cart == null)
 {
-    <a href="~/Product/@orderItem.Product.UrlSlug">
-        <div class="row my-2 py-3">
-            <div class="col-2">
-                <img class="img" src="@orderItem.Product.ImageUri" />
-            </div>
-            <div class="col">
-                <h4>@orderItem.Product.Name</h4>
-            </div>
-            <div class="col">
-                
-                Count: <br/>
-                @orderItem.Count
+    <p>Your session timed out. Please collect new products in your cart!</p>
+}
+else
+{
+    @foreach (var orderItem in Model.Cart.CartContent)
+    {
+        <a href="~/Product/@orderItem.Product.UrlSlug">
+            <div class="row my-2 py-3">
+                <div class="col-2">
+                    <img class="img" src="@orderItem.Product.ImageUri" />
+                </div>
+                <div class="col">
+                    <h4>@orderItem.Product.Name</h4>
+                </div>
+                <div class="col">
 
+                    Count: <br />
+                    @orderItem.Count
+
+                </div>
+                <div class="col">
+                    <b>@string.Format("{0:c}", orderItem.Cost)</b>
+                </div>
             </div>
-            <div class="col">
-                <b>@string.Format("{0:c}", orderItem.Cost)</b>                
+        </a>
+        <hr />
+    }
+
+    <form method="post" class="d-flex flex-column">
+        <div class="d-flex flex-row justify-content-between">
+            <h4>
+                Total:<br />
+                @string.Format("{0:c}", Model.Cart.TotalCost)
+            </h4>
+
+
+            <button type="submit" class="btn btn-freaky w-25">Buy</button>
+        </div>
+
+        <hr />
+
+        <h3 class="header">Customer information</h3>
+
+        <div class="form-group">
+            <label asp-for="UserData.SocialSecurityNumber"> </label>
+            <input asp-for="UserData.SocialSecurityNumber" class="form-control mb-2" />
+            <span asp-validation-for="UserData.SocialSecurityNumber" class="text-danger"></span>
+        </div>
+
+        <div class="d-flex flex-row justify-content-between mb-2">
+            <div class="form-group  w-50 mr-2">
+                <label asp-for="UserData.FirstName"> </label>
+                <input asp-for="UserData.FirstName" class="form-control" />
+                <span asp-validation-for="UserData.FirstName" class="text-danger"></span>
+            </div>
+
+            <div class="form-group  w-50">
+                <label asp-for="UserData.LastName"> </label>
+                <input asp-for="UserData.LastName" class="form-control" />
+                <span asp-validation-for="UserData.LastName" class="text-danger"></span>
             </div>
         </div>
-    </a>
-    <hr />
+
+        <div class="form-group">
+            <label asp-for="UserData.Street"> </label>
+            <input asp-for="UserData.Street" class="form-control mb-2" />
+            <span asp-validation-for="UserData.Street" class="text-danger"></span>
+        </div>
+
+        <div class="d-flex flex-row justify-content-between mb-2">
+            <div class="form-group  w-25 mr-2">
+                <label asp-for="UserData.Zip"> </label>
+                <input asp-for="UserData.Zip" class="form-control mb-2" />
+                <span asp-validation-for="UserData.Zip" class="text-danger"></span>
+            </div>
+
+            <div class="form-group w-75">
+                <label asp-for="UserData.City"> </label>
+                <input asp-for="UserData.City" class="form-control mb-2" />
+                <span asp-validation-for="UserData.City" class="text-danger"></span>
+            </div>
+        </div>
+
+        @if (Model.UserData == null)
+        {
+            <div class="d-flex flex-row align-items-baseline">
+                <input asp-for="IsNewAccount"/>
+                <label asp-for="IsNewAccount" class="ml-2"> </label>
+            </div>
+        }
+
+    </form>
 }
 
-<form method="post" class="d-flex justify-content-between align-items-center">
-    <h4>
-        Total:<br />
-        @string.Format("{0:c}", Model.Cart.TotalCost)
-    </h4>
-    <button type="submit" class="btn btn-freaky">Buy</button>
-</form>
+
 
 
 

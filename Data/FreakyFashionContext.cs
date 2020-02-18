@@ -52,7 +52,7 @@ namespace FreakyFashion.Data
         {
             var hasher = new PasswordHasher<IdentityUser>();
 
-            var admin = new IdentityUser()
+            var admin = new FreakyFashionUser()
             {
                 Id = "a18be9c0-aa65-4af8-bd17-00bd9344e575",
                 UserName = "admin@nomail.com",
@@ -61,10 +61,16 @@ namespace FreakyFashion.Data
                 NormalizedEmail = "ADMIN@NOMAIL.COM",
                 EmailConfirmed = true,
                 PhoneNumber = "0707-12345",
-                PasswordHash = hasher.HashPassword(null, "Admin123!")
+                PasswordHash = hasher.HashPassword(null, "Admin123!"),
+                FirstName = "Jenny",
+                LastName = "Kallerup",
+                SocialSecurityNumber = "123456-7890",
+                Street = "Gråbondegatan 25",
+                Zip = "256 71",
+                City = "Helsingborg",
             };
 
-            modelBuilder.Entity<IdentityUser>().HasData(admin);
+            modelBuilder.Entity<FreakyFashionUser>().HasData(admin);
 
             var administrator = roles.FirstOrDefault(x => x.Name == "Administrator");
 
