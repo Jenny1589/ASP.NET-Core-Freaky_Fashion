@@ -1,0 +1,39 @@
+﻿@page
+@model FreakyFashion.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<table class="table table-striped" style="width: 730px">
+    <thead>
+        <tr>
+            <th class="w-25">
+                Customer
+            </th>
+            <th class="w-25">
+                Created
+            </th>
+            <th class="w-25">
+                Amount
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.OrderList)
+        {
+            <tr>
+                <td>
+                    @item.Customer.FirstName @item.Customer.LastName
+                </td>
+                <td>
+                    @item.OrderTime
+                </td>
+                <td>
+                   @string.Format("{0:c}",item.OrderContent.Select(oi => oi.Cost).Sum())
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
