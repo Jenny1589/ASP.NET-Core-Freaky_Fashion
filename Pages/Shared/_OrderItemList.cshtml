@@ -1,0 +1,28 @@
+﻿
+@using FreakyFashion.Data.Entities
+
+@model IEnumerable<OrderItem>
+
+@foreach (var orderItem in Model)
+{
+    <a href="~/Product/@orderItem.Product.UrlSlug">
+        <div class="row my-2 py-3">
+            <div class="col-2">
+                <img class="img" src="@orderItem.Product.ImageUri" />
+            </div>
+            <div class="col">
+                <h4>@orderItem.Product.Name</h4>
+            </div>
+            <div class="col">
+
+                Count: <br />
+                @orderItem.Count
+
+            </div>
+            <div class="col">
+                <b>@string.Format("{0:c}", orderItem.Cost)</b>
+            </div>
+        </div>
+    </a>
+    <hr />
+}

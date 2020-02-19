@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Linq;
 using FreakyFashion.Data;
 using FreakyFashion.Data.Entities;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.EntityFrameworkCore;
 
 namespace FreakyFashion
 {
@@ -22,7 +19,11 @@ namespace FreakyFashion
 
         public void OnGet(string orderGuid)
         {
-            Order = _context.Orders.FirstOrDefault(o => o.OrderGuid.ToString() == orderGuid);
+            Order = _context.Orders
+                .Include(o => o.Customer)
+                .Include(o => o.OrderContent)
+                .ThenInclude(oi => oi.Product)
+                .FirstOrDefault(o => o.OrderGuid.ToString() == orderGuid);
         }
     }
 }
