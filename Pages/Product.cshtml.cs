@@ -14,7 +14,6 @@ namespace FreakyFashion
     {
         private FreakyFashionContext _context;
         public Product Product { get; private set; }
-        public List<Product> RecommendedProductList { get; set; }
 
         public ProductModel(FreakyFashionContext context)
         {
@@ -27,8 +26,6 @@ namespace FreakyFashion
                 .FirstOrDefault(p => p.UrlSlug.Equals(urlSlug.ToLower()));
 
             if (Product == null) return NotFound();
-
-            RecommendedProductList = _context.Products.Where(p => !p.Equals(Product)).Take(4).ToList();
 
             return Page();
         }

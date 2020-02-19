@@ -24,4 +24,4 @@
     </div>
 </div>
 
-<partial name="_RecommendedProducts" model="Model.RecommendedProductList" />
+@await  Component.InvokeAsync("RecommendedProducts", new { current = Model.Product })
