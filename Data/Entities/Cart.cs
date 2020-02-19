@@ -34,11 +34,11 @@ namespace FreakyFashion.Data.Entities
             }
         }
 
-        public OrderItem[] CartContent
+        public IEnumerable<OrderItem> CartContent
         {
             get
             {
-                return orderItems.ToArray();
+                return orderItems;
             }
         }
 
@@ -54,6 +54,10 @@ namespace FreakyFashion.Data.Entities
             }
         }
 
+        public void Empty()
+        {
+            orderItems = new List<OrderItem>();
+        }
 
         public void Add(Product product)
         {

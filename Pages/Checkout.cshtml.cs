@@ -93,7 +93,12 @@ namespace FreakyFashion
             var order = new Order(Cart.CartContent, customer);
 
             _context.Orders.Add(order);
-            _context.SaveChanges();
+            await _context.SaveChangesAsync();
+
+            Cart.Empty();
+            var serializedCart = JsonConvert.SerializeObject(Cart);
+
+            HttpContext.Session.SetString("Cart", serializedCart);
 
             return RedirectToPage("/OrderConfirmation", new { orderGuid = order.OrderGuid.ToString() });
         }
