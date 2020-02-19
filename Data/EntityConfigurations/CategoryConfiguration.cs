@@ -16,8 +16,7 @@ namespace FreakyFashion.Data.EntityConfigurations
                 .IsRequired();
 
             builder.Property(c => c.ImageUri)
-                .HasConversion(value => value.ToString(), value => new Uri(value, UriKind.Relative))
-                .IsRequired();
+                .HasConversion(value => value.ToString(), value => new Uri(value, UriKind.Relative));
 
             builder.HasData(new Category[]
             {

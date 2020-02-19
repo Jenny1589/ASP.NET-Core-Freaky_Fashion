@@ -7,28 +7,29 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using FreakyFashion.Data;
 using FreakyFashion.Data.Entities;
+using System.ComponentModel.DataAnnotations;
 
 namespace FreakyFashion.Areas.Admin.AdminCategory
 {
     public class CreateModel : PageModel
     {
-        private readonly FreakyFashion.Data.FreakyFashionContext _context;
+        private static FreakyFashionContext _context;
 
-        public CreateModel(FreakyFashion.Data.FreakyFashionContext context)
+        public CreateModel(FreakyFashionContext context)
         {
             _context = context;
         }
 
-        public IActionResult OnGet()
+        public IActionResult OnGet(string message)
         {
             return Page();
         }
 
         [BindProperty]
-        public Category Category { get; set; }
+        public FormModel CategoryModel { get; set; } = new FormModel();
 
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for
-        // more details see https://aka.ms/RazorPagesCRUD.
+        public string Message { get; private set; }
+
         public async Task<IActionResult> OnPostAsync()
         {
             if (!ModelState.IsValid)
@@ -36,10 +37,33 @@ namespace FreakyFashion.Areas.Admin.AdminCategory
                 return Page();
             }
 
-            _context.Categories.Add(Category);
+            Category category = null;
+
+            if(CategoryModel.IsHighlighted && _context.Categories.Where(c => c.IsHighlighted).Count() == 3)
+            {
+                category = new Category(CategoryModel.Name, CategoryModel.ImageUri, false);
+            }
+            else
+            {
+                category = new Category(CategoryModel.Name, CategoryModel.ImageUri, CategoryModel.IsHighlighted);
+            }
+
+            _context.Categories.Add(category);
             await _context.SaveChangesAsync();
 
             return RedirectToPage("./Index");
+        }
+
+        public class FormModel
+        {
+            [Required]
+            public string Name { get; set; }
+
+            [Display(Name = "Highlight this category")]
+            public bool IsHighlighted { get; set; }
+
+            [Display(Name = "Image path")]
+            public Uri ImageUri { get; set; }
         }
     }
 }

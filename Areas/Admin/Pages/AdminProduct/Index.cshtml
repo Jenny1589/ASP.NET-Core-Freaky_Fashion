@@ -1,6 +1,10 @@
 ﻿@page
 @model FreakyFashion.Areas.Admin.AdminProduct.IndexModel
 
+@{ 
+    ViewData["Title"] = "Product administration";
+}
+
 
 <a class="btn btn-admin mb-2" asp-page="Create">
     <i class="material-icons mr-2">
@@ -20,7 +24,7 @@
                 @Html.DisplayNameFor(model => model.Product[0].Name)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Product[0].Description)
+                Categories
             </th>
             <th class="w-25">
                 @Html.DisplayNameFor(model => model.Product[0].Price)
@@ -67,7 +71,10 @@
                 @Html.DisplayFor(modelItem => item.Name)
             </td>
             <td>
-                <small>@Html.DisplayFor(modelItem => item.Description)</small>
+                @foreach(var productCategory in item.ProductCategories)
+                {
+                    @productCategory.Category.Name<br />
+                }                
             </td>
             <td>
                 @string.Format("{0:c}", item.Price)

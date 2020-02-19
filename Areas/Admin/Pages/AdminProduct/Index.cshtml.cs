@@ -23,7 +23,10 @@ namespace FreakyFashion.Areas.Admin.AdminProduct
 
         public async Task OnGetAsync()
         {
-            Product = await _context.Products.ToListAsync();
+            Product = await _context.Products
+                .Include(p => p.ProductCategories)
+                .ThenInclude(pc => pc.Category)
+                .ToListAsync();
         }
     }
 }

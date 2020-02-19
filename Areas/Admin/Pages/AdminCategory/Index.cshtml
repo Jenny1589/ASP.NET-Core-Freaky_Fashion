@@ -2,53 +2,71 @@
 @model FreakyFashion.Areas.Admin.AdminCategory.IndexModel
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Category administration";
 }
 
-<h1>Index</h1>
 
-<p>
-    <a asp-page="Create">Create New</a>
-</p>
-<table class="table">
+<a class="btn btn-admin mb-2" asp-page="Create">
+    <i class="material-icons mr-2">
+        add
+    </i>
+    Add category
+</a>
+
+<table class="table table-striped" style="width: 730px">
     <thead>
         <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Category[0].ImageUri)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Category[0].IsHighlighted)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Category[0].Name)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Category[0].UrlSlug)
-            </th>
             <th></th>
+            <th>
+                @Html.DisplayNameFor(model => model.CategoryList[0].Name)
+            </th>
+            <th>
+                Product count
+            </th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model.Category) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.ImageUri)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IsHighlighted)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.UrlSlug)
-            </td>
-            <td>
-                <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
-        </tr>
-}
+        @foreach (var item in Model.CategoryList)
+        {
+            <tr>
+                <td>
+                    <small>
+                        <a class="admin-link d-flex align-items-center"
+                           asp-area="Admin" asp-page="./Edit" asp-route-id="@item.Id">
+                            <i class="material-icons mr-2">
+                                edit
+                            </i>
+                            Edit
+                        </a>
+                    </small>
+                    <small>
+                        <a class="admin-link d-flex align-items-center"
+                           asp-page="./Details" asp-route-id="@item.Id">
+                            <i class="material-icons mr-2">
+                                info
+                            </i>
+                            Details
+                        </a>
+                    </small>
+                    <small>
+                        <a class="admin-link d-flex align-items-center"
+                           asp-page="./Delete" asp-route-id="@item.Id">
+
+                            <i class="material-icons mr-2">
+                                delete
+                            </i>
+                            Delete
+                        </a>
+                    </small>
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @item.ProductCategories.Count()
+                </td>
+            </tr>
+        }
     </tbody>
 </table>
+
