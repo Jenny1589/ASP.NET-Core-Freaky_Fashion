@@ -9,8 +9,16 @@ namespace FreakyFashion.Data.Entities
         public bool IsHighlighted { get; protected set; }
         public List<ProductCategory> ProductCategories { get; protected set; }
 
-        public Category(int id, string name, Uri imageUri, bool isHighlighted)
-            : base(id, name)
+        public Category(int id, string name, Uri imageUri, bool isHighlighted, string urlSlug)
+            : this(name, imageUri, isHighlighted)
+        {
+            Id = id;
+            _name = name;
+            UrlSlug = urlSlug;
+        }
+
+        public Category(string name, Uri imageUri, bool isHighlighted)
+            :base(name)
         {
             ImageUri = imageUri;
             IsHighlighted = isHighlighted;

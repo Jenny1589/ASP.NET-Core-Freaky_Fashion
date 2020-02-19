@@ -13,6 +13,7 @@ namespace FreakyFashion.Data
     {
         public DbSet<Product> Products { get; set; }
         public DbSet<Category> Categories { get; set; }
+        public DbSet<Customer> Customers { get; set; }
         public DbSet<Order> Orders { get; set; }
 
         public FreakyFashionContext(DbContextOptions<FreakyFashionContext> options)
@@ -26,6 +27,7 @@ namespace FreakyFashion.Data
             modelBuilder.ApplyConfiguration(new ProductConfiguration());
             modelBuilder.ApplyConfiguration(new CategoryConfiguration());
             modelBuilder.ApplyConfiguration(new ProductCategoryConfiguration());
+            modelBuilder.ApplyConfiguration(new CustomerConfiguration());
             modelBuilder.ApplyConfiguration(new OrderConfiguration());
 
             var roles = SeedRoles(modelBuilder);
@@ -38,7 +40,7 @@ namespace FreakyFashion.Data
             {
                 new IdentityRole
                 {
-                    Id = Guid.NewGuid().ToString(),
+                    Id = "4ccb6a35-5917-42a4-a4bf-2da5fbdb8fa4",
                     Name = "Administrator",
                     NormalizedName = "ADMINISTRATOR"
                 }

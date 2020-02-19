@@ -1,7 +1,6 @@
 ﻿using FreakyFashion.Data.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using System;
 
 namespace FreakyFashion.Data.EntityConfigurations
 {

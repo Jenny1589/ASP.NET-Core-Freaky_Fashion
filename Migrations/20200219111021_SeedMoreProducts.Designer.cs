@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FreakyFashion.Migrations
 {
     [DbContext(typeof(FreakyFashionContext))]
-    [Migration("20200218073032_AddUserData")]
-    partial class AddUserData
+    [Migration("20200219111021_SeedMoreProducts")]
+    partial class SeedMoreProducts
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -54,7 +54,7 @@ namespace FreakyFashion.Migrations
                             ImageUri = "/img/campaign.jpg",
                             IsHighlighted = true,
                             Name = "Campaign",
-                            UrlSlug = "campaign-dcac5dd1-69ed-4138-9b60-58583f91f7e0"
+                            UrlSlug = "campaign-d87fd666-0bc1-49c4-9aae-7378aa3476ef"
                         },
                         new
                         {
@@ -62,7 +62,7 @@ namespace FreakyFashion.Migrations
                             ImageUri = "/img/news.jpg",
                             IsHighlighted = true,
                             Name = "News",
-                            UrlSlug = "news-e421ad4f-237c-4a31-a43b-7fddd0976a05"
+                            UrlSlug = "news-d8ceb934-a053-4528-be14-62270f6555bd"
                         },
                         new
                         {
@@ -70,7 +70,7 @@ namespace FreakyFashion.Migrations
                             ImageUri = "/img/spring.jpg",
                             IsHighlighted = true,
                             Name = "Spring",
-                            UrlSlug = "spring-b92e3e4a-57f7-4b01-bfce-fa243e46d5de"
+                            UrlSlug = "spring-8fa53587-3f40-4431-a267-93202954cecb"
                         },
                         new
                         {
@@ -78,7 +78,7 @@ namespace FreakyFashion.Migrations
                             ImageUri = "/img/shirt_01.jpg",
                             IsHighlighted = false,
                             Name = "Shirts",
-                            UrlSlug = "shirts-ba7f2404-ab15-42e2-9af2-9861bf454042"
+                            UrlSlug = "shirts-18b27c8b-10d0-4bc6-81cf-6345bc215868"
                         },
                         new
                         {
@@ -86,7 +86,7 @@ namespace FreakyFashion.Migrations
                             ImageUri = "/img/blouse_01.jpg",
                             IsHighlighted = false,
                             Name = "Blouses",
-                            UrlSlug = "blouses-e4561175-74ea-4467-9b4a-2dba3feec1b4"
+                            UrlSlug = "blouses-6ef1ae86-f4c0-42b8-b183-db5831181cf7"
                         },
                         new
                         {
@@ -94,7 +94,7 @@ namespace FreakyFashion.Migrations
                             ImageUri = "/img/jeans_01.jpg",
                             IsHighlighted = false,
                             Name = "Jeans",
-                            UrlSlug = "jeans-a07c5ee9-518d-4b65-aba7-b2288202b864"
+                            UrlSlug = "jeans-c038d230-d071-48d8-a005-644070e4b2e5"
                         },
                         new
                         {
@@ -102,8 +102,54 @@ namespace FreakyFashion.Migrations
                             ImageUri = "/img/dress_01.jpg",
                             IsHighlighted = false,
                             Name = "Dresses",
-                            UrlSlug = "dresses-df7f7be2-47d7-4d18-9352-b0d1ea3595be"
+                            UrlSlug = "dresses-197fb20e-14e5-4a06-8fba-f0ddd97d47df"
                         });
+                });
+
+            modelBuilder.Entity("FreakyFashion.Data.Entities.Customer", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("City")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("FirstName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsMember")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("LastName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PhoneNumber")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("SocialSecurityNumber")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Street")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Zip")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Customer");
                 });
 
             modelBuilder.Entity("FreakyFashion.Data.Entities.FreakyFashionUser", b =>
@@ -187,6 +233,84 @@ namespace FreakyFashion.Migrations
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
                     b.ToTable("AspNetUsers");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = "a18be9c0-aa65-4af8-bd17-00bd9344e575",
+                            AccessFailedCount = 0,
+                            City = "Helsingborg",
+                            ConcurrencyStamp = "0ff4a86d-fb05-4704-b127-ec8255277f41",
+                            Email = "admin@nomail.com",
+                            EmailConfirmed = true,
+                            FirstName = "Jenny",
+                            LastName = "Kallerup",
+                            LockoutEnabled = false,
+                            NormalizedEmail = "ADMIN@NOMAIL.COM",
+                            NormalizedUserName = "ADMIN@NOMAIL.COM",
+                            PasswordHash = "AQAAAAEAACcQAAAAELaqNDFS2frJWt0+nF/b4+uhl2HaMW8EzYqBKqwNVjKTwLoNgtI+3QU8rjir7eRIfg==",
+                            PhoneNumber = "0707-12345",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "ae745def-a517-4c8a-b617-dcef5bdd14cd",
+                            SocialSecurityNumber = "123456-7890",
+                            Street = "Gråbondegatan 25",
+                            TwoFactorEnabled = false,
+                            UserName = "admin@nomail.com",
+                            Zip = "256 71"
+                        });
+                });
+
+            modelBuilder.Entity("FreakyFashion.Data.Entities.Order", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("CustomerId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("FreakyFashionUserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<Guid>("OrderGuid")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("OrderTime")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CustomerId");
+
+                    b.HasIndex("FreakyFashionUserId");
+
+                    b.ToTable("Order");
+                });
+
+            modelBuilder.Entity("FreakyFashion.Data.Entities.OrderItem", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<long>("Count")
+                        .HasColumnType("bigint");
+
+                    b.Property<int>("OrderId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("ProductId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("OrderId");
+
+                    b.HasIndex("ProductId");
+
+                    b.ToTable("OrderItem");
                 });
 
             modelBuilder.Entity("FreakyFashion.Data.Entities.Product", b =>
@@ -222,6 +346,88 @@ namespace FreakyFashion.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Product");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            ArticleNumber = "1234-5678",
+                            Description = "Something must exist in this freaky business! Buy it... NOW!",
+                            ImageUri = "/img/blouse_01.jpg",
+                            Name = "Campaign Blouse",
+                            Price = 895.0,
+                            UrlSlug = "campaign-blouse-6d544e5c-a32b-4130-877f-94b13040ff92"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            ArticleNumber = "9876-5432",
+                            Description = "This is Freaky Fashion isn't it? Of course it is. Bring out your Freaky!",
+                            ImageUri = "/img/jeans_03.jpg",
+                            Name = "Freaky Jeans",
+                            Price = 245.0,
+                            UrlSlug = "freaky-jeans-6d544e5c-a32b-4130-877f-94b13040ff92"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            ArticleNumber = "8765-4321",
+                            Description = "You are a bad girl aren't you? Of course you are. Dare you to show it off!",
+                            ImageUri = "/img/shirt_01.jpg",
+                            Name = "Bad Girl Shirt",
+                            Price = 895.0,
+                            UrlSlug = "bad-girl-shirt-6d544e5c-a32b-4130-877f-94b13040ff92"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            ArticleNumber = "2345-6789",
+                            Description = "Really elegant and posh. Fits for the everyday stand out look or for the next party",
+                            ImageUri = "/img/dress_03.jpg",
+                            Name = "Smokin Dress",
+                            Price = 999.0,
+                            UrlSlug = "smokin-dress-6d544e5c-a32b-4130-877f-94b13040ff92"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            ArticleNumber = "3456-7890",
+                            Description = "Every freaky girl must have a pair of jeans in their closet.",
+                            ImageUri = "/img/jeans_01.jpg",
+                            Name = "Pretty Freaky Jeans",
+                            Price = 799.0,
+                            UrlSlug = "pretty-freaky-jeans-6d544e5c-a32b-4130-877f-94b13040ff92"
+                        },
+                        new
+                        {
+                            Id = 6,
+                            ArticleNumber = "4321-8765",
+                            Description = "Own the beach this summer? Of course you want! Pro tip: Buy this dress and work it along the shore",
+                            ImageUri = "/img/dress_02.jpg",
+                            Name = "Beach Dress",
+                            Price = 390.0,
+                            UrlSlug = "beach-dress-6d544e5c-a32b-4130-877f-94b13040ff92"
+                        },
+                        new
+                        {
+                            Id = 7,
+                            ArticleNumber = "1234-5678",
+                            Description = "Do you feel like an animal? This freaky blouse comes in many vibrant colours. Pick your furry!",
+                            ImageUri = "/img/blouse_03.jpg",
+                            Name = "Furry Blouse",
+                            Price = 469.0,
+                            UrlSlug = "furry-blouse-6d544e5c-a32b-4130-877f-94b13040ff92"
+                        },
+                        new
+                        {
+                            Id = 8,
+                            ArticleNumber = "1234-5678",
+                            Description = "Are you a Pepsi fan like us? Then you just can't be without this shirt...",
+                            ImageUri = "/img/shirt_02.jpg",
+                            Name = "Pepsi Shirt",
+                            Price = 89.0,
+                            UrlSlug = "pepsi-shirt-6d544e5c-a32b-4130-877f-94b13040ff92"
+                        });
                 });
 
             modelBuilder.Entity("FreakyFashion.Data.Entities.ProductCategory", b =>
@@ -237,6 +443,13 @@ namespace FreakyFashion.Migrations
                     b.HasIndex("CategoryId");
 
                     b.ToTable("ProductCategory");
+
+                    b.HasData(
+                        new
+                        {
+                            ProductId = 1,
+                            CategoryId = 5
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -268,8 +481,8 @@ namespace FreakyFashion.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "c208428b-f4c8-4eaa-9c79-880e1ecd238f",
-                            ConcurrencyStamp = "2f33b95c-db23-4889-8184-f013fa2abc99",
+                            Id = "b1a8b483-a388-41bf-9551-8db71964935c",
+                            ConcurrencyStamp = "84acef83-fc3f-4bd1-b029-617090ea0a0f",
                             Name = "Administrator",
                             NormalizedName = "ADMINISTRATOR"
                         });
@@ -297,77 +510,6 @@ namespace FreakyFashion.Migrations
                     b.HasIndex("RoleId");
 
                     b.ToTable("AspNetRoleClaims");
-                });
-
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUser", b =>
-                {
-                    b.Property<string>("Id")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<int>("AccessFailedCount")
-                        .HasColumnType("int");
-
-                    b.Property<string>("ConcurrencyStamp")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Email")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("EmailConfirmed")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("LockoutEnabled")
-                        .HasColumnType("bit");
-
-                    b.Property<DateTimeOffset?>("LockoutEnd")
-                        .HasColumnType("datetimeoffset");
-
-                    b.Property<string>("NormalizedEmail")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("NormalizedUserName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("PasswordHash")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("PhoneNumber")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("PhoneNumberConfirmed")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("SecurityStamp")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("TwoFactorEnabled")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("UserName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("IdentityUser");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = "a18be9c0-aa65-4af8-bd17-00bd9344e575",
-                            AccessFailedCount = 0,
-                            ConcurrencyStamp = "9eab3ed1-4919-489a-a663-6a42f1fc990a",
-                            Email = "admin@nomail.com",
-                            EmailConfirmed = true,
-                            LockoutEnabled = false,
-                            NormalizedEmail = "ADMIN@NOMAIL.COM",
-                            NormalizedUserName = "ADMIN@NOMAIL.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEG4PTE8ubcj/2xW02xURP6QHTalNSKLim3D7FP9rJfDoI4eqXbbRVYVL9z+6nUwUcw==",
-                            PhoneNumber = "0707-12345",
-                            PhoneNumberConfirmed = false,
-                            SecurityStamp = "4946082c-c7dc-4310-bcaf-a5a36013cc32",
-                            TwoFactorEnabled = false,
-                            UserName = "admin@nomail.com"
-                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
@@ -436,7 +578,7 @@ namespace FreakyFashion.Migrations
                         new
                         {
                             UserId = "a18be9c0-aa65-4af8-bd17-00bd9344e575",
-                            RoleId = "c208428b-f4c8-4eaa-9c79-880e1ecd238f"
+                            RoleId = "b1a8b483-a388-41bf-9551-8db71964935c"
                         });
                 });
 
@@ -459,6 +601,32 @@ namespace FreakyFashion.Migrations
                     b.HasKey("UserId", "LoginProvider", "Name");
 
                     b.ToTable("AspNetUserTokens");
+                });
+
+            modelBuilder.Entity("FreakyFashion.Data.Entities.Order", b =>
+                {
+                    b.HasOne("FreakyFashion.Data.Entities.Customer", "Customer")
+                        .WithMany("Orders")
+                        .HasForeignKey("CustomerId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("FreakyFashion.Data.Entities.FreakyFashionUser", null)
+                        .WithMany("Orders")
+                        .HasForeignKey("FreakyFashionUserId");
+                });
+
+            modelBuilder.Entity("FreakyFashion.Data.Entities.OrderItem", b =>
+                {
+                    b.HasOne("FreakyFashion.Data.Entities.Order", "Order")
+                        .WithMany("OrderContent")
+                        .HasForeignKey("OrderId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("FreakyFashion.Data.Entities.Product", "Product")
+                        .WithMany()
+                        .HasForeignKey("ProductId");
                 });
 
             modelBuilder.Entity("FreakyFashion.Data.Entities.ProductCategory", b =>

@@ -5,7 +5,7 @@ namespace FreakyFashion.Data.Entities
     public class OrderItem
     {
         public int Id { get; protected set; }
-        public Product Product { get; protected set; }
+        public Product Product { get; set; }
         public uint Count { get; protected set; } = 1;
         public double Cost
         {
