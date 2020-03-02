@@ -59,6 +59,8 @@ namespace FreakyFashion
                 // Make the session cookie essential
                 options.Cookie.IsEssential = true;
             });
+
+            services.AddControllers();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
