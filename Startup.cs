@@ -12,6 +12,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Newtonsoft.Json;
 
 namespace FreakyFashion
 {
@@ -47,7 +48,11 @@ namespace FreakyFashion
                 })
                 .AddRazorRuntimeCompilation();
 
-            services.AddMvc();
+            services.AddMvc().AddNewtonsoftJson(
+                options =>
+                {
+                    options.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
+                });
 
             services.AddDistributedMemoryCache();
 

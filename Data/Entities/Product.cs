@@ -32,5 +32,10 @@ namespace FreakyFashion.Data.Entities
             Price = price;
             ImageUri = imageUri;
         }
+
+        internal object Include()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

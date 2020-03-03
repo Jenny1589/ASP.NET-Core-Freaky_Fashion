@@ -11,19 +11,30 @@ namespace FreakyFashion.Areas.API.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class ProductController : ControllerBase
+    public class CategoryController : ControllerBase
     {
         private readonly FreakyFashionContext _context;
 
-        public ProductController(FreakyFashionContext context)
+        public CategoryController(FreakyFashionContext context)
         {
             _context = context;
         }
 
         [HttpGet]
-        public IEnumerable<Product> GetProducts()
+        public IEnumerable<Category> GetCategories()
         {
-            return _context.Products.ToList();
+            return _context.Categories.ToList();
+        }
+
+        [HttpGet("{id}")]
+        public ActionResult<Category> GetCategory(int id)
+        {
+            var category = _context.Categories
+                .FirstOrDefault(c => c.Id == id);
+
+            if (category == null) return NotFound();
+
+            return category;
         }
     }
 }
