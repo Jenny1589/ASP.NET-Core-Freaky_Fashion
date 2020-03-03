@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 
 namespace FreakyFashion.Data.Entities
@@ -9,6 +10,7 @@ namespace FreakyFashion.Data.Entities
         public bool IsHighlighted { get; protected set; }
         public List<ProductCategory> ProductCategories { get; protected set; }
 
+        [JsonConstructor]
         public Category(int id, string name, Uri imageUri, bool isHighlighted, string urlSlug)
             : this(name, imageUri, isHighlighted)
         {

@@ -1,4 +1,6 @@
-﻿namespace FreakyFashion.Data.Entities
+﻿using Newtonsoft.Json;
+
+namespace FreakyFashion.Data.Entities
 {
     public class ProductCategory
     {
@@ -8,6 +10,7 @@
         public int CategoryId { get; protected set; }
         public Category Category { get; set; }
 
+        [JsonConstructor]
         public ProductCategory(int productId, int categoryId)
         {
             ProductId = productId;

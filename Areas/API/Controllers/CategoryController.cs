@@ -36,5 +36,15 @@ namespace FreakyFashion.Areas.API.Controllers
 
             return category;
         }
+
+        [HttpPost]
+        public ActionResult AddCategory(Category category)
+        {
+            _context.Categories.Add(category);
+            _context.SaveChanges();
+
+            return Created($"/api/category/{category.Id}", category);
+        }
+
     }
 }

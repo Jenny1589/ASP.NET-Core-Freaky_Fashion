@@ -40,5 +40,14 @@ namespace FreakyFashion.Areas.API.Controllers
 
             return product;
         }
+
+        [HttpPost]
+        public ActionResult AddProduct(Product product)
+        {
+            _context.Products.Add(product);
+            _context.SaveChanges();
+
+            return Created($"/api/product/{product.Id}", product);
+        }
     }
 }
