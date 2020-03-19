@@ -6,7 +6,7 @@ namespace FreakyFashion.Data.Entities
 {
     public class Category : WebEntity
     {
-        public Uri ImageUri { get; protected set; }
+        public Uri ImageUri { get; set; }
         public bool IsHighlighted { get; protected set; }
         public List<ProductCategory> ProductCategories { get; protected set; }
 

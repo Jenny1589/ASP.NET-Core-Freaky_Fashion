@@ -7,12 +7,12 @@ namespace FreakyFashion.Data.Entities
 {
     public class Product : WebEntity
     {
-        public string ArticleNumber { get; protected set; }
+        public string ArticleNumber { get; set; }
 
-        public string Description { get; protected set; }
-        public double Price { get; protected set; }
+        public string Description { get; set; }
+        public double Price { get; set; }
 
-        public Uri ImageUri { get; protected set; }
+        public Uri ImageUri { get; set; }
         public List<ProductCategory> ProductCategories { get; protected set; } = new List<ProductCategory>();
 
         [JsonConstructor]

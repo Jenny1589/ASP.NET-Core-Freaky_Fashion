@@ -11,7 +11,7 @@ namespace FreakyFashion.Data.Entities
         {
             get { return _name; }
 
-            protected set
+            set
             {
                 _name = value;
 
